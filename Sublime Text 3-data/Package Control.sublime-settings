@@ -1,0 +1,23 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Alignment",
+		"AutoBackups",
+		"AutoHotkey",
+		"Color Highlighter",
+		"DocBlockr",
+		"Emmet",
+		"GitGutter",
+		"GitSavvy",
+		"Package Control",
+		"Sass",
+		"SFTP",
+	],
+	"repositories":
+	[
+	]
+}

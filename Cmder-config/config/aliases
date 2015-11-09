@@ -1,0 +1,34 @@
+e.=explorer .
+gl=git log --oneline --all --graph --decorate  $*
+ls=ls --show-control-chars -F --color $*
+pwd=cd
+clear=cls
+history=cat %CMDER_ROOT%\config\.history
+unalias=alias /d $1
+
+open=explorer $1
+mkcd=mkdir $1 & cd $1
+..=cd ..
+...=cd ..\..
+....=cd ..\..\..
+.....=cd ..\..\..\..
+
+~=cd /d %USERPROFILE%
+dc=cd /d %USERPROFILE%\Documents
+dl=cd /d %USERPROFILE%\Downloads
+dt=cd /d %USERPROFILE%\Desktop
+
+ga=git add $*
+gb=git branch $*
+gch=git checkout $*
+gcl=git clone $*
+gc=git commit $*
+gcm=git commit -m "$*"
+gd=git diff
+gr=git remote $*
+gpu=git pull $*
+gp=git push $*
+gpd=git push origin development
+gpm=git push origin master
+gpu=git push origin upstream
+gs=git status $*

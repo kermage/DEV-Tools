@@ -1,0 +1,16 @@
+{
+  // Add a '[function_name description]' for the function block
+  "jsdocs_function_description": true,
+
+  // Add a '[description]' placeholder for the return tag?
+  "jsdocs_return_description": true,
+
+  // Add a '[description]' placeholder for the param tag?
+  "jsdocs_param_description": true,
+
+  // Add a name of parameter in param tag?
+  "jsdocs_param_name": true,
+  
+  // If set to true, Ctrl+Enter while in a single line comment will 'decorate' the comment.
+  "jsdocs_decorate": true,
+}
