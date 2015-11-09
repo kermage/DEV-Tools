@@ -15,8 +15,8 @@ IF [!user_email!]==[] (
 	git config --global user.email !user_email!
 )
 
-REM FOR /F "delims=" %%* IN ('git config github.token') DO SET github_token=%%*
-REM IF [!github_token!]==[] (
-REM 	SET /P github_token=Enter Token: %=%
-REM 	git config --global github.token !github_token!
-REM )
+FOR /F "delims=" %%* IN ('git config github.token') DO SET github_token=%%*
+IF [!github_token!]==[] (
+	SET /P github_token=GitHub Token: %=%
+	git config --global github.token !github_token!
+)
