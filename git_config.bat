@@ -1,4 +1,6 @@
 @ECHO OFF
+TITLE Git Configuration
+SETLOCAL EnableDelayedExpansion
 
 :: Check global git config; set if not found
 FOR /F "delims=" %%* IN ('git config user.name') DO SET user_name=%%*
