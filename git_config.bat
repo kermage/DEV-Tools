@@ -2,6 +2,19 @@
 TITLE Git Configuration
 SETLOCAL EnableDelayedExpansion
 
+:: Find Git path
+IF EXIST "%ProgramFiles%\Git" (
+	SET "git_path=%ProgramFiles%\Git"
+) ELSE IF EXIST "%ProgramFiles(x86)%\Git" (
+	SET "git_path=%ProgramFiles(x86)%\Git"
+)
+
+:: Skip if Git not found
+IF [!git_path!]==[] GOTO :END
+
+:: Add Git to path
+SET "PATH=%git_path%\bin;%git_path%\usr\bin;%PATH%"
+
 :: Check global git config; set if not found
 FOR /F "delims=" %%* IN ('git config user.name') DO SET user_name=%%*
 IF [!user_name!]==[] (
@@ -20,3 +33,5 @@ IF [!github_token!]==[] (
 	SET /P github_token=GitHub Token: %=%
 	git config --global github.token !github_token!
 )
+
+:END
