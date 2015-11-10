@@ -1,4 +1,4 @@
-@ECHO OFF &MODE CON: COLS=45 LINES=2
+@ECHO OFF
 TITLE Setup DEV-Tools
 
 :: Download tools
