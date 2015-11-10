@@ -7,7 +7,7 @@ cscript "download.vbs" "http://c758482.r82.cf2.rackcdn.com/Sublime Text Build 30
 cscript "download.vbs" "https://github.com/git-for-windows/git/releases/download/v2.6.2.windows.1/Git-2.6.2-32-bit.exe"
 
 :: Install then import config and data
-7za x "cmder_mini.zip" -o"%SYSTEMDRIVE%\Cmder"
+7za x "cmder_mini.zip" -o"%SYSTEMDRIVE%\Cmder" -y
 CALL "import_cmder.bat"
 "Sublime Text Build 3083 Setup.exe" /SILENT
 CALL "import_sublime.bat"
