@@ -1,8 +1,16 @@
 @ECHO OFF
 SETLOCAL EnableDelayedExpansion
 
-:: Get current directory as repository name
-FOR %%* IN (.) DO SET repo_name=%%~n*
+:: Get argument as repository name
+SET repo_name=%1
+
+:: Get current directory
+FOR %%* IN (.) DO SET dir_name=%%~n*
+
+:: Set current directory as repository
+IF [!repo_name!]==[] (
+	SET repo_name=%dir_name%
+)
 
 :: Get Git configuration
 FOR /F "delims=" %%* IN ('git config user.name') DO SET user_name=%%*
