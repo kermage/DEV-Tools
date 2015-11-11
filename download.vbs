@@ -17,8 +17,13 @@ If Not objFSO.FolderExists( objArgs(1) ) Then
 	Set objFolder = objFSO.CreateFolder( objArgs(1) )
 End If
 
-' Start download
+' Enable error handling
 On Error Resume Next
+
+' Ignore certificate errors
+objHTTP.SetOption 2, 13056
+
+' Start download
 objHTTP.Open "GET", strLink, False
 objHTTP.Send
 
