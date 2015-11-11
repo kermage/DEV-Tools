@@ -14,7 +14,7 @@ IF NOT EXIST "Git-2.6.2-32-bit.exe" (
 	ECHO Downloading Git . . .
 	cscript "download.vbs" "https://github.com/git-for-windows/git/releases/download/v2.6.2.windows.1/Git-2.6.2-32-bit.exe" 2>NUL >NUL
 )
-PAUSE
+
 :: Install then import config and data
 IF EXIST "cmder_mini.zip" (
 	ECHO Installing Cmder . . .
@@ -25,7 +25,7 @@ IF EXIST "cmder_mini.zip" (
 )
 IF EXIST "Sublime Text Build 3083 Setup.exe" (
 	ECHO Installing Sublime . . .
-	"Sublime Text Build 3083 Setup.exe" /SILENT
+	"Sublime Text Build 3083 Setup.exe" /SILENT /TASKS="contextentry"
 	CALL "import_sublime.bat" 2>NUL >NUL
 )
 IF EXIST "Git-2.6.2-32-bit.exe" (
