@@ -31,6 +31,8 @@ IF EXIST "Downloads\cmder_mini.zip" (
 IF EXIST "Downloads\Sublime Text Build 3083 Setup.exe" (
 	ECHO|SET /P ="Installing Sublime ... "
 	"Downloads\Sublime Text Build 3083 Setup.exe" /SILENT /TASKS="contextentry"
+	:: Install Package Control
+	cscript "download.vbs" "https://packagecontrol.io/Package Control.sublime-package" "%APPDATA%\Sublime Text 3\Installed Packages" 2>NUL >NUL
 	CALL "import_sublime.bat" 2>NUL >NUL
 	ECHO DONE^!
 )
