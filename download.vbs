@@ -10,8 +10,8 @@ strLink = objArgs(0)
 ' Strip filename from download link
 strFileName = Mid( strLink, InStrRev( strLink,"/" ) + 1, Len( strLink ) )
 
-' Save to current directory
-strSaveTo = objFSO.GetAbsolutePathName( "." ) & "\" & strFileName
+' Get save directory from argument
+strSaveTo = objArgs(1) & "\" & strFileName
 
 ' Start download
 On Error Resume Next
