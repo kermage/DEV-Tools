@@ -34,4 +34,10 @@ IF [!github_token!]==[] (
 	git config --global github.token !github_token!
 )
 
+FOR /F "delims=" %%* IN ('git config bitbucket.token') DO SET bitbucket_token=%%*
+IF [!bitbucket_token!]==[] (
+	SET /P bitbucket_token=Bitbucket Token: %=%
+	git config --global bitbucket.token !bitbucket_token!
+)
+
 :END
