@@ -28,3 +28,10 @@ If objHTTP.Status = 200 Then
 	End With
 	Set objStream = Nothing
 End If
+
+' Exit with download status
+If objFSO.FileExists( strSaveTo ) Then
+	WScript.Quit 0
+Else
+	WScript.Quit 1
+End If
