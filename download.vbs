@@ -13,6 +13,11 @@ strFileName = Mid( strLink, InStrRev( strLink,"/" ) + 1, Len( strLink ) )
 ' Get save directory from argument
 strSaveTo = objArgs(1) & "\" & strFileName
 
+' Create download folder if not exist
+If Not objFSO.FolderExists( objArgs(1) ) Then
+	Set objFolder = objFSO.CreateFolder( objArgs(1) )
+End If
+
 ' Start download
 On Error Resume Next
 objHTTP.Open "GET", strLink, False
