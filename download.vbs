@@ -14,8 +14,14 @@ strFileName = Mid( strLink, InStrRev( strLink,"/" ) + 1, Len( strLink ) )
 strSaveTo = objFSO.GetAbsolutePathName( "." ) & "\" & strFileName
 
 ' Start download
+On Error Resume Next
 objHTTP.Open "GET", strLink, False
 objHTTP.Send
+
+' Quit on error
+If Err.Number <> 0 Then
+	WScript.Quit 1
+End If
 
 If objHTTP.Status = 200 Then
 	Set objStream = CreateObject( "ADODB.Stream" )
