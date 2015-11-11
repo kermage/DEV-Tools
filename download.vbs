@@ -1,7 +1,6 @@
 ' Set Objects
 Set objArgs = WScript.Arguments
-Set objHTTP = CreateObject( "WinHttp.WinHttpRequest.5.1" )
-'Set objHTTP = CreateObject( "MSXML2.ServerXMLHTTP" )
+Set objHTTP = CreateObject( "MSXML2.ServerXMLHTTP" )
 Set objFSO = CreateObject( "Scripting.FileSystemObject" )
 
 ' Get download link from passed argument
