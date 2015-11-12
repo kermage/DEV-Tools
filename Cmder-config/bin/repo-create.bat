@@ -41,7 +41,11 @@ IF /I "%git_host%"=="GitHub" (
 	curl -u "%user_name%:%github_token%" https://api.github.com/user/repos -d '{"name":"%repo_name%"}' 2>NUL >NUL
 )
 IF /I "%git_host%"=="Bitbucket" (
-	curl -u "%user_name%:%bitbucket_token%" https://api.bitbucket.org/2.0/repositories/%user_name%/%repo_name% -d name="%repo_name%" -d is_private="true" 2>NUL >NUL
+	SET repo_slug=%repo_name%
+	FOR %%A IN ("A=a" "B=b" "C=c" "D=d" "E=e" "F=f" "G=g" "H=h" "I=i" "J=j"
+	"K=k" "L=l" "M=m" "N=n" "O=o" "P=p" "Q=q" "R=r" "S=s" "T=t" "U=u" "V=v"
+	"W=w" "X=x" "Y=y" "Z=z") DO CALL SET repo_slug=%%repo_slug:%%~A%%
+	curl -u "%user_name%:%bitbucket_token%" https://api.bitbucket.org/2.0/repositories/%user_name%/!repo_slug! -d name="%repo_name%" -d is_private="true" 2>NUL >NUL
 )
 ECHO DONE^^!
 
@@ -50,7 +54,7 @@ IF /I "%git_host%"=="GitHub" (
 	git remote add origin git@github.com:%user_name%/%repo_name%.git 2>NUL >NUL
 )
 IF /I "%git_host%"=="Bitbucket" (
-	git remote add origin git@bitbucket.org:%user_name%/%repo_name%.git 2>NUL >NUL
+	git remote add origin git@bitbucket.org:%user_name%/%repo_slug%.git 2>NUL >NUL
 )
 git push -u origin master 2>NUL >NUL
 ECHO DONE^^!
