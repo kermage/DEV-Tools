@@ -32,6 +32,11 @@ IF NOT EXIST "Downloads\Git-2.6.2-32-bit.exe" (
 	cscript "download.vbs" "https://github.com/git-for-windows/git/releases/download/v2.6.2.windows.1/Git-2.6.2-32-bit.exe" "Downloads" 2>NUL >NUL
 	IF "!ERRORLEVEL!"=="0" ( ECHO DONE^^! ) ELSE ( ECHO FAILED^^! )
 )
+IF NOT EXIST "Downloads\node-v4.2.2-x86.msi" (
+	ECHO|SET /P ="Downloading Node ... "
+	cscript "download.vbs" "https://nodejs.org/dist/v4.2.2/node-v4.2.2-x86.msi" "Downloads" 2>NUL >NUL
+	IF "!ERRORLEVEL!"=="0" ( ECHO DONE^! ) ELSE ( ECHO FAILED^! )
+)
 ECHO.
 
 :: Install then import config and data
@@ -57,6 +62,11 @@ IF EXIST "Downloads\Git-2.6.2-32-bit.exe" (
 	ECHO DONE^^!
 	ECHO Git Configuration
 	CALL "git_config.bat"
+)
+IF EXIST "Downloads\node-v4.2.2-x86.msi" (
+	ECHO|SET /P ="Installing Node ... "
+	"Downloads\node-v4.2.2-x86.msi" /QUIET
+	ECHO DONE^!
 )
 ECHO.
 
