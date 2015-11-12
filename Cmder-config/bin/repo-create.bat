@@ -31,6 +31,9 @@ IF [!repo_name!]==[] (
 	SET repo_name=%dir_name%
 )
 
+:: Replace spaces in repository name with hypens
+SET repo_name=%repo_name: =-%
+
 :: Get Git configuration
 FOR /F "delims=" %%* IN ('git config user.name') DO SET user_name=%%*
 FOR /F "delims=" %%* IN ('git config github.token') DO SET github_token=%%*
