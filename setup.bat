@@ -13,6 +13,9 @@ DEL "%TEMP%\getadmin.vbs"
 EXIT /B
 
 :MAIN
+:: Change to batch file's directory
+CD /D %~dp0
+
 :: Download tools
 IF NOT EXIST "Downloads\cmder_mini.zip" (
 	ECHO|SET /P ="Downloading Cmder ... "
