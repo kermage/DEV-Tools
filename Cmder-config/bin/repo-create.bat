@@ -5,9 +5,17 @@ SETLOCAL EnableDelayedExpansion
 SET repo_name=%1
 SET git_host=%2
 
+:: Default git host
+SET def_host=Bitbucket
+
 :: Manually set if no git host passed
 IF [!git_host!]==[] (
-	SET /P git_host=Enter Git Host: %=%
+	SET /P git_host=Enter Git Host ^(%def_host%^): %=%
+)
+
+:: Set to default git host
+IF [!git_host!]==[] (
+	SET git_host=%def_host%
 )
 
 :: Get current directory
