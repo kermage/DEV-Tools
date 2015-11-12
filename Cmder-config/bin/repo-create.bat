@@ -7,6 +7,11 @@ SET repo_name=%1
 :: Get current directory
 FOR %%* IN (.) DO SET dir_name=%%~n*
 
+:: If no argument passed, manually set repository name
+IF [!repo_name!]==[] (
+	SET /P repo_name=Enter Repository Name ^(%dir_name%^): %=%
+)
+
 :: Set current directory as repository
 IF [!repo_name!]==[] (
 	SET repo_name=%dir_name%
