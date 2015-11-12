@@ -45,7 +45,7 @@ IF EXIST "Downloads\cmder_mini.zip" (
 )
 IF EXIST "Downloads\Sublime Text Build 3083 Setup.exe" (
 	ECHO|SET /P ="Installing Sublime ... "
-	"Downloads\Sublime Text Build 3083 Setup.exe" /SILENT /TASKS="contextentry"
+	"Downloads\Sublime Text Build 3083 Setup.exe" /SILENT /LOADINF="Downloads\sublime.ini"
 	CALL "import_sublime.bat" 2>NUL >NUL
 	:: Install Package Control
 	cscript "download.vbs" "https://packagecontrol.io/Package Control.sublime-package" "%APPDATA%\Sublime Text 3\Installed Packages" 2>NUL >NUL
@@ -53,7 +53,7 @@ IF EXIST "Downloads\Sublime Text Build 3083 Setup.exe" (
 )
 IF EXIST "Downloads\Git-2.6.2-32-bit.exe" (
 	ECHO|SET /P ="Installing Git ... "
-	"Downloads\Git-2.6.2-32-bit.exe" /SILENT
+	"Downloads\Git-2.6.2-32-bit.exe" /SILENT /LOADINF="Downloads\git.ini"
 	ECHO DONE^^!
 	ECHO Git Configuration
 	CALL "git_config.bat"
