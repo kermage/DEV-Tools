@@ -14,8 +14,10 @@ IF [!git_host!]==[] (
 )
 
 :: Set to default git host
-IF [!git_host!]==[] (
-	SET git_host=%def_host%
+IF /I NOT "%git_host%"=="GitHub" (
+	IF /I NOT "%git_host%"=="Bitbucket" (
+		SET git_host=%def_host%
+	)
 )
 
 :: Get current directory
