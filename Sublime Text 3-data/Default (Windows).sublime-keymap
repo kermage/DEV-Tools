@@ -5,5 +5,8 @@
 	{ "keys": ["ctrl+shift+z"], "command": "revert" },
 	
 	{ "keys": ["ctrl+q"], "command": "toggle_comment", "args": { "block": false } },
-	{ "keys": ["ctrl+shift+q"], "command": "toggle_comment", "args": { "block": true } }
+	{ "keys": ["ctrl+shift+q"], "command": "toggle_comment", "args": { "block": true } },
+	
+	{ "keys": ["ctrl+shift+t"], "command": "reopen_last_file" },
+	{ "keys": ["ctrl+alt+t"], "command": "open_terminal" }
 ]
