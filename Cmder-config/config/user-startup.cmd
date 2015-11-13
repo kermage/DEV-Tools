@@ -3,3 +3,4 @@
  
 @CALL "%GIT_INSTALL_ROOT%\cmd\start-ssh-agent.cmd"
 @CALL "%CMDER_ROOT%\bin\add-keys.bat"
+@CALL "%CMDER_ROOT%\bin\add-sublime.bat"
