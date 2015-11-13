@@ -1,0 +1,7 @@
+<snippet>
+	<content><![CDATA[
+http://placehold.it/${1:width}x${2:height}/${3:background}/${4:color}?text=$5
+]]></content>
+	<tabTrigger>placeholder</tabTrigger>
+	<description>Placehold.it</description>
+</snippet>
