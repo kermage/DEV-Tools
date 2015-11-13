@@ -19,6 +19,6 @@ SET "PATH=%nodejs_path%;%PATH%"
 SET /P npm_packages=Enter Packages: %=%
 
 :: Install npm packages
-npm install --global %npm_packages% 2>NUL >NUL
+(npm install --global %npm_packages%) 2>NUL >NUL
 
 :END
