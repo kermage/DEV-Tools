@@ -32,3 +32,11 @@ gpd=git push origin development
 gpm=git push origin master
 gpu=git push origin upstream
 gs=git status $*
+
+npmi=npm install $*
+npmig=npm install -g $*
+npmis=npm install -S $*
+npmid=npm install -D $*
+npmu=npm uninstall $*
+npmug=npm uninstall -g $*
+npmcc=npm cache clean
