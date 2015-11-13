@@ -78,7 +78,9 @@ IF EXIST "Downloads\Git-2.6.2-32-bit.exe" (
 IF EXIST "Downloads\node-v4.2.2-x86.msi" (
 	ECHO|SET /P ="Installing Node ... "
 	"Downloads\node-v4.2.2-x86.msi" /QUIET
-	ECHO DONE^!
+	ECHO DONE^^!
+	ECHO NPM Installation	
+	CALL "npm_install.bat"
 )
 ECHO.
 
