@@ -1,0 +1,25 @@
+<snippet>
+	<content><![CDATA[
+; ##################################################
+; ################### DIRECTIVES ###################
+; ##################################################
+;@Ahk2Exe-SetName ${1:[project]}
+;@Ahk2Exe-SetDescription ${2:[description]}
+;@Ahk2Exe-SetCopyright ${3:[copyright]}
+;@Ahk2Exe-SetOrigFilename ${4:[filename]}
+;@Ahk2Exe-SetCompanyName ${5:[company]}
+;@Ahk2Exe-SetMainIcon ${6:[icon]}
+
+
+; ##################################################
+; ###################### MAIN ######################
+; ##################################################
+$7
+
+return ; =========== END OF AUTO EXECUTE ===========
+
+]]></content>
+	<tabTrigger>ahkproj</tabTrigger>
+	<description>AHK Project</description>
+	<!-- <scope>source.ahk</scope> -->
+</snippet>
