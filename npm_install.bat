@@ -19,18 +19,18 @@ SET "PATH=%nodejs_path%;%PATH%"
 SET /P npm_packages=Enter Packages: %=%
 
 :: Get NPM global root folder
-FOR /F "tokens=*" %%I IN ('ls ^| npm root -g') DO SET npm_root=%%I
+FOR /F "tokens=*" %%I IN ('DIR /B ^| npm root -g') DO SET npm_root=%%I
 
 :: Check if npm package are installed
 FOR %%F IN (%npm_packages%) DO CALL :CHECK_PACKAGE %%F
 
 :: Install missing npm packages
 IF NOT "%package_list%" == "" (npm install --global %package_list%) 2>NUL >NUL
-GOTO:EOF
+GOTO:END
 
 :CHECK_PACKAGE
 :: Add to list if npm package is not installed
-FOR /F "tokens=*" %%J IN ('ls %npm_root% ^| grep "%1"') DO SET is_installed=%%J
+FOR /F "tokens=*" %%J IN ('DIR /B %npm_root% ^| FINDSTR /C:"%1"') DO SET is_installed=%%J
 IF "%is_installed%" == "" SET package_list=%1 %package_list%
 GOTO:EOF
 
