@@ -25,7 +25,7 @@ ECHO "%PATH%" | FINDSTR /C:"%nodejs_path%" 2>NUL >NUL || (
 SET /P npm_packages=Enter Packages: %=%
 
 :: Get NPM global root folder
-FOR /F "tokens=*" %%I IN ('DIR /B ^| npm root -g') DO SET npm_root=%%I
+FOR /F "tokens=*" %%I IN ('npm root -g') DO SET npm_root=%%I
 
 :: Check if npm package are installed
 FOR %%F IN (%npm_packages%) DO CALL :CHECK_PACKAGE %%F
