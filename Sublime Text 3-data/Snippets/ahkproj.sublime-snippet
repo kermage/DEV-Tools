@@ -5,16 +5,18 @@
 ; ##################################################
 ;@Ahk2Exe-SetName ${1:[project]}
 ;@Ahk2Exe-SetDescription ${2:[description]}
-;@Ahk2Exe-SetCopyright ${3:[copyright]}
-;@Ahk2Exe-SetOrigFilename ${4:[filename]}
-;@Ahk2Exe-SetCompanyName ${5:[company]}
-;@Ahk2Exe-SetMainIcon ${6:[icon]}
+;@Ahk2Exe-SetVersion ${3:[version]}
+;@Ahk2Exe-SetCopyright ${4:[copyright]}
+;@Ahk2Exe-SetTrademarks ${5:[trademarks]}
+;@Ahk2Exe-SetOrigFilename ${6:[filename]}
+;@Ahk2Exe-SetCompanyName ${7:[company]}
+;@Ahk2Exe-SetMainIcon ${8:[icon]}
 
 
 ; ##################################################
 ; ###################### MAIN ######################
 ; ##################################################
-$7
+$9
 
 return ; =========== END OF AUTO EXECUTE ===========
 
