@@ -2,6 +2,9 @@
 TITLE Git Configuration
 SETLOCAL EnableDelayedExpansion
 
+:: Skip if git is recognized
+git --version 2>NUL >NUL && GOTO :MAIN
+
 :: Find Git path
 IF EXIST "%ProgramFiles%\Git" (
 	SET "git_path=%ProgramFiles%\Git"
@@ -17,6 +20,7 @@ ECHO "%PATH%" | FINDSTR /C:"%git_path%" 2>NUL >NUL || (
 	SET "PATH=%git_path%\bin;%git_path%\usr\bin;%PATH%"
 )
 
+:MAIN
 :: Check global git config; set if not found
 FOR /F "delims=" %%* IN ('git config user.name') DO SET user_name=%%*
 IF [!user_name!]==[] (

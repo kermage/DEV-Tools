@@ -2,6 +2,9 @@
 TITLE NPM Installation
 SETLOCAL EnableDelayedExpansion
 
+:: Skip if npm is recognized
+npm --version 2>NUL >NUL && GOTO :MAIN
+
 :: Find NodeJS path
 IF EXIST "%ProgramFiles%\nodejs" (
 	SET "nodejs_path=%ProgramFiles%\nodejs"
@@ -17,6 +20,7 @@ ECHO "%PATH%" | FINDSTR /C:"%nodejs_path%" 2>NUL >NUL || (
 	SET "PATH=%nodejs_path%;%PATH%"
 )
 
+:MAIN
 :: NPM packages to install
 SET /P npm_packages=Enter Packages: %=%
 
