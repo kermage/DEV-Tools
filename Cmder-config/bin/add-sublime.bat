@@ -1,7 +1,7 @@
 @ECHO OFF
 
-:: Skip if Sublime already in path
-ECHO "%PATH%" | FINDSTR /C:"%sublime_path%" 2>NUL >NUL && GOTO :END
+:: Skip if subl is recognized
+subl --version 2>NUL >NUL && GOTO :END
 
 :: Find Sublime path
 IF EXIST "%ProgramFiles%\Sublime Text 3" (
@@ -13,7 +13,9 @@ IF EXIST "%ProgramFiles%\Sublime Text 3" (
 :: Skip if Sublime not found
 IF [!sublime_path!]==[] GOTO :END
 
-:: Add Sublime to path
-SET "PATH=%sublime_path%;%PATH%"
+:: Add Sublime to path if not exist
+ECHO "%PATH%" | FINDSTR /C:"%sublime_path%" 2>NUL >NUL (
+	SET "PATH=%sublime_path%;%PATH%"
+)
 
 :END
