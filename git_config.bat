@@ -12,8 +12,10 @@ IF EXIST "%ProgramFiles%\Git" (
 :: Skip if Git not found
 IF [!git_path!]==[] GOTO :END
 
-:: Add Git to path
-SET "PATH=%git_path%\bin;%git_path%\usr\bin;%PATH%"
+:: Add Git to path if not exist
+ECHO "%PATH%" | FINDSTR /C:"%git_path%" 2>NUL >NUL || (
+	SET "PATH=%git_path%\bin;%git_path%\usr\bin;%PATH%"
+)
 
 :: Check global git config; set if not found
 FOR /F "delims=" %%* IN ('git config user.name') DO SET user_name=%%*

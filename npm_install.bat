@@ -12,8 +12,10 @@ IF EXIST "%ProgramFiles%\nodejs" (
 :: Skip if NodeJS not found
 IF [!nodejs_path!]==[] GOTO :END
 
-:: Add NodeJS to path
-SET "PATH=%nodejs_path%;%PATH%"
+:: Add NodeJS to path if not exist
+ECHO "%PATH%" | FINDSTR /C:"%nodejs_path%" 2>NUL >NUL || (
+	SET "PATH=%nodejs_path%;%PATH%"
+)
 
 :: NPM packages to install
 SET /P npm_packages=Enter Packages: %=%
