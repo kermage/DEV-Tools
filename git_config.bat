@@ -54,4 +54,8 @@ IF [!bitbucket_token!]==[] (
 )
 git config --global bitbucket.token %bitbucket_token%
 
+FOR /F "delims=" %%* IN ('git config core.autocrlf') DO SET core_autocrlf=%%*
+SET /P core_autocrlf=Auto CRLF ^(%core_autocrlf%^): %=%
+git config --global core.autocrlf !core_autocrlf!
+
 :END
