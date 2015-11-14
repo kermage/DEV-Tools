@@ -18,42 +18,42 @@ CD /D %~dp0
 
 :: Banner
 ECHO.
-ECHO    *******   ******** **      **      **********                    **        
-ECHO   /**////** /**///// /**     /**     /////**///                    /**        
-ECHO   /**    /**/**      /**     /**         /**      ******   ******  /**  ******
-ECHO   /**    /**/******* //**    **  *****   /**     **////** **////** /** **//// 
-ECHO   /**    /**/**////   //**  **  /////    /**    /**   /**/**   /** /**//***** 
-ECHO   /**    ** /**        //****            /**    /**   /**/**   /** /** /////**
-ECHO   /*******  /********   //**             /**    //****** //******  *** ****** 
-ECHO   ///////   ////////     //              //      //////   //////  /// //////  
+ECHO    *******    ******** **      **     **********                   **         
+ECHO   /**////**  /**///// /**     /**    /////**///                   /**         
+ECHO   /**    /** /**      /**     /**        /**    ******    ******  /**   ******
+ECHO   /**    /** /******* //**    **  *****  /**   **////**  **////** /**  **//// 
+ECHO   /**    /** /**////   //**  **  /////   /**  /**   /** /**   /** /** //***** 
+ECHO   /**    **  /**        //****           /**  /**   /** /**   /** /**  /////**
+ECHO   /*******   /********   //**            /**  //******  //******  ***  ****** 
+ECHO   ///////    ////////     //             //    //////    //////  ///  //////  
 ECHO.
 
 :: Download tools
 IF NOT EXIST "Downloads\cmder_mini.zip" (
-	ECHO|SET /P ="Downloading Cmder ... "
+	ECHO|SET /P ="Downloading Cmder . . . "
 	cscript "download.vbs" "http://github.com/cmderdev/cmder/releases/download/v1.2.9/cmder_mini.zip" "Downloads" 2>NUL >NUL
 	IF "!ERRORLEVEL!"=="0" ( ECHO DONE^^! ) ELSE ( ECHO FAILED^^! )
 )
 IF NOT EXIST "Downloads\Sublime Text Build 3083 Setup.exe" (
-	ECHO|SET /P ="Downloading Sublime ... "
+	ECHO|SET /P ="Downloading Sublime Text . . . "
 	cscript "download.vbs" "http://c758482.r82.cf2.rackcdn.com/Sublime Text Build 3083 Setup.exe" "Downloads" 2>NUL >NUL
 	IF "!ERRORLEVEL!"=="0" ( ECHO DONE^^! ) ELSE ( ECHO FAILED^^! )
 )
 IF NOT EXIST "Downloads\Git-2.6.2-32-bit.exe" (
-	ECHO|SET /P ="Downloading Git ... "
+	ECHO|SET /P ="Downloading Git . . . "
 	cscript "download.vbs" "https://github.com/git-for-windows/git/releases/download/v2.6.2.windows.1/Git-2.6.2-32-bit.exe" "Downloads" 2>NUL >NUL
 	IF "!ERRORLEVEL!"=="0" ( ECHO DONE^^! ) ELSE ( ECHO FAILED^^! )
 )
 IF NOT EXIST "Downloads\node-v4.2.2-x86.msi" (
-	ECHO|SET /P ="Downloading Node ... "
+	ECHO|SET /P ="Downloading NodeJS . . . "
 	cscript "download.vbs" "https://nodejs.org/dist/v4.2.2/node-v4.2.2-x86.msi" "Downloads" 2>NUL >NUL
-	IF "!ERRORLEVEL!"=="0" ( ECHO DONE^! ) ELSE ( ECHO FAILED^! )
+	IF "!ERRORLEVEL!"=="0" ( ECHO DONE^^! ) ELSE ( ECHO FAILED^^! )
 )
 ECHO.
 
 :: Install then import config and data
 IF EXIST "Downloads\cmder_mini.zip" (
-	ECHO|SET /P ="Installing Cmder ... "
+	ECHO|SET /P ="Installing Cmder . . . "
 	7za x "Downloads\cmder_mini.zip" -o"%SYSTEMDRIVE%\Cmder" -y 2>NUL >NUL
 	CALL "import_cmder.bat" 2>NUL >NUL
 	:: Register Cmder context menu
@@ -61,7 +61,7 @@ IF EXIST "Downloads\cmder_mini.zip" (
 	ECHO DONE^^!
 )
 IF EXIST "Downloads\Sublime Text Build 3083 Setup.exe" (
-	ECHO|SET /P ="Installing Sublime ... "
+	ECHO|SET /P ="Installing Sublime Text . . . "
 	"Downloads\Sublime Text Build 3083 Setup.exe" /SILENT /LOADINF="Downloads\sublime.ini"
 	CALL "import_sublime.bat" 2>NUL >NUL
 	:: Install Package Control
@@ -69,18 +69,16 @@ IF EXIST "Downloads\Sublime Text Build 3083 Setup.exe" (
 	ECHO DONE^^!
 )
 IF EXIST "Downloads\Git-2.6.2-32-bit.exe" (
-	ECHO|SET /P ="Installing Git ... "
+	ECHO|SET /P ="Installing Git . . . "
 	"Downloads\Git-2.6.2-32-bit.exe" /SILENT /LOADINF="Downloads\git.ini"
 	ECHO DONE^^!
-	ECHO Git Configuration
-	CALL "git_config.bat"
+	START /WAIT CMD /C "git_config.bat"
 )
 IF EXIST "Downloads\node-v4.2.2-x86.msi" (
-	ECHO|SET /P ="Installing Node ... "
+	ECHO|SET /P ="Installing NodeJS . . . "
 	"Downloads\node-v4.2.2-x86.msi" /QUIET
 	ECHO DONE^^!
-	ECHO NPM Installation	
-	CALL "npm_install.bat"
+	START /WAIT CMD /C "npm_install.bat"
 )
 ECHO.
 
