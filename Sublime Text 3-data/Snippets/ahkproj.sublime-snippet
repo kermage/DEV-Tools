@@ -14,6 +14,23 @@
 
 
 ; ##################################################
+; ##################### CONFIG #####################
+; ##################################################
+#MaxThReads 20
+#NoEnv
+#NoTrayIcon
+#Persistent
+#SingleInstance force
+
+Process, Priority,, High 
+SendMode Input
+SetBatchLines, -1
+SetTitleMatchMode, 2
+SetTitleMatchMode, Slow
+SetTitleMatchMode, RegEx
+
+
+; ##################################################
 ; ###################### MAIN ######################
 ; ##################################################
 $9
