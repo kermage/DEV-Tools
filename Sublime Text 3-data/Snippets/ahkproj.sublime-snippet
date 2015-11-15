@@ -25,17 +25,34 @@
 Process, Priority,, High 
 SendMode Input
 SetBatchLines, -1
+SetKeyDelay, -1
 SetTitleMatchMode, 2
 SetTitleMatchMode, Slow
 SetTitleMatchMode, RegEx
 
 
 ; ##################################################
+; ################### INITIALIZE ###################
+; ##################################################
+SetWorkingDir %A_ScriptDir%
+FileGetVersion, VER, %A_ScriptFullPath%
+TITLE = ${9:${1:[project]}}
+iniFile = ${10:${9:${1:[project]}}}.ini
+IfNotExist, ${10:${9:${1:[project]}}}.ini
+	FileInstall, ${10:${9:${1:[project]}}}.ini, ${10:${9:${1:[project]}}}.ini
+
+
+; ##################################################
 ; ###################### MAIN ######################
 ; ##################################################
-$9
+$11
 
 return ; =========== END OF AUTO EXECUTE ===========
+
+
+; ##################################################
+; #################### INCLUDES ####################
+; ##################################################
 
 ]]></content>
 	<tabTrigger>ahkproj</tabTrigger>
