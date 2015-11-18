@@ -72,13 +72,13 @@ IF EXIST "Downloads\Git-2.6.2-32-bit.exe" (
 	ECHO|SET /P ="Installing Git . . . "
 	"Downloads\Git-2.6.2-32-bit.exe" /SILENT /LOADINF="Downloads\git.ini"
 	ECHO DONE^^!
-	START /WAIT CMD /C "git_config.bat"
+	START CMD /C "git_config.bat"
 )
 IF EXIST "Downloads\node-v4.2.2-x86.msi" (
 	ECHO|SET /P ="Installing NodeJS . . . "
 	"Downloads\node-v4.2.2-x86.msi" /QUIET
 	ECHO DONE^^!
-	START /WAIT CMD /C "npm_install.bat"
+	START CMD /C "npm_install.bat"
 )
 ECHO.
 
