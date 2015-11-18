@@ -14,7 +14,7 @@ IF EXIST "%ProgramFiles%\Sublime Text 3" (
 IF [!sublime_path!]==[] GOTO :END
 
 :: Add Sublime to path if not exist
-ECHO "%PATH%" | FINDSTR /C:"%sublime_path%" 2>NUL >NUL (
+ECHO "%PATH%" | FINDSTR /C:"%sublime_path%" 2>NUL >NUL || (
 	SET "PATH=%sublime_path%;%PATH%"
 )
 
