@@ -31,22 +31,22 @@ ECHO.
 :: Download tools
 IF NOT EXIST "Downloads\cmder_mini.zip" (
 	ECHO|SET /P ="Downloading Cmder . . . "
-	cscript "download.vbs" "http://github.com/cmderdev/cmder/releases/download/v1.2.9/cmder_mini.zip" "Downloads" 2>NUL >NUL
+	cscript "download.vbs" "https://github.com/cmderdev/cmder/releases/download/v1.3.0-pre/cmder_mini.zip" "Downloads" 2>NUL >NUL
 	IF "!ERRORLEVEL!"=="0" ( ECHO DONE^^! ) ELSE ( ECHO FAILED^^! )
 )
-IF NOT EXIST "Downloads\Sublime Text Build 3083 Setup.exe" (
+IF NOT EXIST "Downloads\Sublime Text Build 3114 Setup.exe" (
 	ECHO|SET /P ="Downloading Sublime Text . . . "
-	cscript "download.vbs" "http://c758482.r82.cf2.rackcdn.com/Sublime Text Build 3083 Setup.exe" "Downloads" 2>NUL >NUL
+	cscript "download.vbs" "https://download.sublimetext.com/Sublime Text Build 3114 Setup.exe" "Downloads" 2>NUL >NUL
 	IF "!ERRORLEVEL!"=="0" ( ECHO DONE^^! ) ELSE ( ECHO FAILED^^! )
 )
-IF NOT EXIST "Downloads\Git-2.6.2-32-bit.exe" (
+IF NOT EXIST "Downloads\Git-2.8.3-32-bit.exe" (
 	ECHO|SET /P ="Downloading Git . . . "
-	cscript "download.vbs" "https://github.com/git-for-windows/git/releases/download/v2.6.2.windows.1/Git-2.6.2-32-bit.exe" "Downloads" 2>NUL >NUL
+	cscript "download.vbs" "https://github.com/git-for-windows/git/releases/download/v2.8.3.windows.1/Git-2.8.3-32-bit.exe" "Downloads" 2>NUL >NUL
 	IF "!ERRORLEVEL!"=="0" ( ECHO DONE^^! ) ELSE ( ECHO FAILED^^! )
 )
-IF NOT EXIST "Downloads\node-v4.2.2-x86.msi" (
+IF NOT EXIST "Downloads\node-v4.4.5-x86.msi" (
 	ECHO|SET /P ="Downloading NodeJS . . . "
-	cscript "download.vbs" "https://nodejs.org/dist/v4.2.2/node-v4.2.2-x86.msi" "Downloads" 2>NUL >NUL
+	cscript "download.vbs" "https://nodejs.org/dist/v4.4.5/node-v4.4.5-x86.msi" "Downloads" 2>NUL >NUL
 	IF "!ERRORLEVEL!"=="0" ( ECHO DONE^^! ) ELSE ( ECHO FAILED^^! )
 )
 ECHO.
@@ -60,23 +60,23 @@ IF EXIST "Downloads\cmder_mini.zip" (
 	%SYSTEMDRIVE%\Cmder\Cmder /REGISTER ALL
 	ECHO DONE^^!
 )
-IF EXIST "Downloads\Sublime Text Build 3083 Setup.exe" (
+IF EXIST "Downloads\Sublime Text Build 3114 Setup.exe" (
 	ECHO|SET /P ="Installing Sublime Text . . . "
-	"Downloads\Sublime Text Build 3083 Setup.exe" /SILENT /LOADINF="Downloads\sublime.ini"
+	"Downloads\Sublime Text Build 3114 Setup.exe" /SILENT /LOADINF="Downloads\sublime.ini"
 	CALL "import_sublime.bat" 2>NUL >NUL
 	:: Install Package Control
 	cscript "download.vbs" "https://packagecontrol.io/Package Control.sublime-package" "%APPDATA%\Sublime Text 3\Installed Packages" 2>NUL >NUL
 	ECHO DONE^^!
 )
-IF EXIST "Downloads\Git-2.6.2-32-bit.exe" (
+IF EXIST "Downloads\Git-2.8.3-32-bit.exe" (
 	ECHO|SET /P ="Installing Git . . . "
-	"Downloads\Git-2.6.2-32-bit.exe" /SILENT /LOADINF="Downloads\git.ini"
+	"Downloads\Git-2.8.3-32-bit.exe" /SILENT /LOADINF="Downloads\git.ini"
 	ECHO DONE^^!
 	START CMD /C "git_config.bat"
 )
-IF EXIST "Downloads\node-v4.2.2-x86.msi" (
+IF EXIST "Downloads\node-v4.4.5-x86.msi" (
 	ECHO|SET /P ="Installing NodeJS . . . "
-	"Downloads\node-v4.2.2-x86.msi" /QUIET
+	"Downloads\node-v4.4.5-x86.msi" /QUIET
 	ECHO DONE^^!
 	START CMD /C "npm_install.bat"
 )
