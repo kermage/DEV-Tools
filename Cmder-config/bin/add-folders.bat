@@ -1,5 +1,7 @@
 @ECHO OFF
 
+SET ALIASES=%CMDER_ROOT%\config\aliases
+
 :: Check if documents alias already set
 FOR /F "tokens=3 delims= " %%A IN ('TYPE %ALIASES% ^| FINDSTR /C:"dc="') DO SET documents_path=%%A
 IF "%documents_path%"=="" (
