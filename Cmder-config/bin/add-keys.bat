@@ -12,6 +12,7 @@ GOTO :END
 
 :CHECK_KEY
 :: Add to list if ssh key is unidentified
+SET is_identified=
 FOR /F "tokens=*" %%J IN ('ssh-add -l ^| FINDSTR /C:"%1"') DO SET is_identified=%%J
 IF "%is_identified%" == "" SET ssh_keys='%USERPROFILE%\.ssh\%1' %ssh_keys%
 GOTO:EOF
