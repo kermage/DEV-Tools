@@ -130,7 +130,7 @@
 			<value name="ConWnd X" type="dword" data="000001f4"/>
 			<value name="ConWnd Y" type="dword" data="000001f4"/>
 			<value name="16bit Height" type="dword" data="00000000"/>
-			<value name="AutoSaveSizePos" type="hex" data="00"/>
+			<value name="AutoSaveSizePos" type="hex" data="01"/>
 			<value name="IntegralSize" type="hex" data="00"/>
 			<value name="QuakeStyle" type="hex" data="00"/>
 			<value name="QuakeAnimation" type="dword" data="0000012c"/>
