@@ -1,9 +1,10 @@
 @ECHO OFF
 SETLOCAL EnableDelayedExpansion
 
-:: Get arguments; repository name and git host
-SET repo_name=%1
-SET git_host=%2
+:: Get arguments; git host, git user and repository name
+SET git_host=%1
+SET git_user=%2
+SET repo_name=%3
 
 :: Default git host
 SET def_host=Bitbucket
@@ -23,8 +24,10 @@ IF /I NOT "%git_host%"=="GitHub" (
 :: Get default git user
 FOR /F "delims=" %%* IN ('git config user.name') DO SET user_name=%%*
 
-:: Set git user
-SET /P git_user=Enter %git_host% User ^(%user_name%^): %=%
+:: Manually set if no git user passed
+IF [!git_user!]==[] (
+	SET /P git_user=Enter %git_host% User ^(%user_name%^): %=%
+)
 
 :: Set to default git user
 IF [!git_user!]==[] (
