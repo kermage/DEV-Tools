@@ -65,13 +65,3 @@ IF /I "%git_host%"=="Bitbucket" (
 	"W=w" "X=x" "Y=y" "Z=z") DO CALL SET repo_slug=%%repo_slug:%%~A%%
 	curl -u "%git_user%" https://api.bitbucket.org/2.0/repositories/%git_user%/!repo_slug! -d name="%repo_name%" -d is_private="true"
 )
-
-ECHO|SET /P ="Pushing local code to remote ... "
-IF /I "%git_host%"=="GitHub" (
-	git remote add origin git@github.com:%git_user%/%repo_name%.git 2>NUL >NUL
-)
-IF /I "%git_host%"=="Bitbucket" (
-	git remote add origin git@bitbucket.org:%git_user%/%repo_slug%.git 2>NUL >NUL
-)
-git push -u origin master 2>NUL >NUL
-ECHO DONE^^!
