@@ -20,8 +20,16 @@ IF /I NOT "%git_host%"=="GitHub" (
 	)
 )
 
+:: Get default git user
+FOR /F "delims=" %%* IN ('git config user.name') DO SET user_name=%%*
+
 :: Set git user
-SET /P git_user=Enter %git_host% User: %=%
+SET /P git_user=Enter %git_host% User ^(%user_name%^): %=%
+
+:: Set to default git user
+IF [!git_user!]==[] (
+	SET git_user=%user_name%
+)
 
 :: Get current directory
 FOR %%* IN (.) DO SET dir_name=%%~n*
