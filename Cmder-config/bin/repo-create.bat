@@ -50,11 +50,6 @@ IF [!repo_name!]==[] (
 :: Replace spaces in repository name with hypens
 SET repo_name=%repo_name: =-%
 
-:: Get Git configuration
-FOR /F "delims=" %%* IN ('git config user.name') DO SET user_name=%%*
-FOR /F "delims=" %%* IN ('git config github.token') DO SET github_token=%%*
-FOR /F "delims=" %%* IN ('git config bitbucket.token') DO SET bitbucket_token=%%*
-
 IF /I "%git_host%"=="GitHub" (
 	curl -u "%git_user%" https://api.github.com/user/repos -d '{"name":"%repo_name%"}'
 )
