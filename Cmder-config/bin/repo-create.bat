@@ -20,6 +20,9 @@ IF /I NOT "%git_host%"=="GitHub" (
 	)
 )
 
+:: Set git user
+SET /P git_user=Enter %git_host% User: %=%
+
 :: Get current directory
 FOR %%* IN (.) DO SET dir_name=%%~n*
 
@@ -41,25 +44,23 @@ FOR /F "delims=" %%* IN ('git config user.name') DO SET user_name=%%*
 FOR /F "delims=" %%* IN ('git config github.token') DO SET github_token=%%*
 FOR /F "delims=" %%* IN ('git config bitbucket.token') DO SET bitbucket_token=%%*
 
-ECHO|SET /P ="Creating %git_host% repository "%repo_name%" ... "
 IF /I "%git_host%"=="GitHub" (
-	curl -u "%user_name%:%github_token%" https://api.github.com/user/repos -d '{"name":"%repo_name%"}' 2>NUL >NUL
+	curl -u "%git_user%" https://api.github.com/user/repos -d '{"name":"%repo_name%"}'
 )
 IF /I "%git_host%"=="Bitbucket" (
 	SET repo_slug=%repo_name%
 	FOR %%A IN ("A=a" "B=b" "C=c" "D=d" "E=e" "F=f" "G=g" "H=h" "I=i" "J=j"
 	"K=k" "L=l" "M=m" "N=n" "O=o" "P=p" "Q=q" "R=r" "S=s" "T=t" "U=u" "V=v"
 	"W=w" "X=x" "Y=y" "Z=z") DO CALL SET repo_slug=%%repo_slug:%%~A%%
-	curl -u "%user_name%:%bitbucket_token%" https://api.bitbucket.org/2.0/repositories/%user_name%/!repo_slug! -d name="%repo_name%" -d is_private="true" 2>NUL >NUL
+	curl -u "%git_user%" https://api.bitbucket.org/2.0/repositories/%git_user%/!repo_slug! -d name="%repo_name%" -d is_private="true"
 )
-ECHO DONE^^!
 
 ECHO|SET /P ="Pushing local code to remote ... "
 IF /I "%git_host%"=="GitHub" (
-	git remote add origin git@github.com:%user_name%/%repo_name%.git 2>NUL >NUL
+	git remote add origin git@github.com:%git_user%/%repo_name%.git 2>NUL >NUL
 )
 IF /I "%git_host%"=="Bitbucket" (
-	git remote add origin git@bitbucket.org:%user_name%/%repo_slug%.git 2>NUL >NUL
+	git remote add origin git@bitbucket.org:%git_user%/%repo_slug%.git 2>NUL >NUL
 )
 git push -u origin master 2>NUL >NUL
 ECHO DONE^^!
