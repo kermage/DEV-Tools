@@ -6,6 +6,7 @@ clear=cls
 history=cat %CMDER_ROOT%\config\.history
 unalias=alias /d $1
 vi=vim $*
+cmderr=cd /d "%CMDER_ROOT%"
 
 open=explorer $1
 mkcd=mkdir $1 & cd $1
@@ -21,6 +22,7 @@ gch=git checkout $*
 gcl=git clone $*
 gc=git commit $*
 gcm=git commit -m "$*"
+gcmp=git commit -m "$*" && git push
 gd=git diff
 gr=git remote $*
 gpu=git pull $*
@@ -29,6 +31,7 @@ gpd=git push origin development
 gpm=git push origin master
 gpu=git push origin upstream
 gs=git status $*
+gfs=git fetch && git status
 
 npmi=npm install $*
 npmig=npm install -g $*
