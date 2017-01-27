@@ -64,6 +64,7 @@ IF EXIST "Downloads\Sublime Text Build 3126 Setup.exe" (
 	ECHO|SET /P ="Installing Sublime Text . . . "
 	"Downloads\Sublime Text Build 3126 Setup.exe" /SILENT /LOADINF="Downloads\sublime.ini"
 	CALL "import_sublime.bat" 2>NUL >NUL
+	CALL "add-sublime.bat" 2>NUL >NUL
 	:: Install Package Control
 	cscript "download.vbs" "https://packagecontrol.io/Package Control.sublime-package" "%APPDATA%\Sublime Text 3\Installed Packages" 2>NUL >NUL
 	ECHO DONE^^!
