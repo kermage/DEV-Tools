@@ -6,8 +6,13 @@ Set objFSO = CreateObject( "Scripting.FileSystemObject" )
 ' Get download link from passed argument
 strLink = objArgs(0)
 
-' Strip filename from download link
-strFileName = Mid( strLink, InStrRev( strLink,"/" ) + 1, Len( strLink ) )
+If IsNull( objArgs(2) ) Then
+	' Strip filename from download link
+	strFileName = Mid( strLink, InStrRev( strLink,"/" ) + 1, Len( strLink ) )
+	Else
+	' Get filename from passed argument
+	strFileName = objArgs(2)
+End If
 
 ' Get save directory from argument
 strSaveTo = objArgs(1) & "\" & strFileName
