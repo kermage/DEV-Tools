@@ -6,7 +6,7 @@ Set objFSO = CreateObject( "Scripting.FileSystemObject" )
 ' Get download link from passed argument
 strLink = objArgs(0)
 
-If ( objArgs.Count = objArgs.Length = 3 ) Then
+If objArgs.Count = 3 Then
 	' Get filename from passed argument
 	strFileName = objArgs(2)
 	Else
