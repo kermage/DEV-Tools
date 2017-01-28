@@ -16,12 +16,12 @@ IF NOT EXIST "Downloads\sublime-snippets.zip" (
 :COPYFILES
 :: Check if zip exist
 IF NOT EXIST "Downloads\sublime-settings.zip" GOTO :END
-7za e "Downloads\sublime-settings.zip" -o"%APPDATA%Sublime Text 3\Packages\User" -y 2>NUL >NUL
-RMDIR /Q "%APPDATA%Sublime Text 3\Packages\User\sublime-settings-master"
+7za e "Downloads\sublime-settings.zip" -o"%APPDATA%\Sublime Text 3\Packages\User" -y 2>NUL >NUL
+RMDIR /Q "%APPDATA%\Sublime Text 3\Packages\User\sublime-settings-master"
 :: Check if zip exist
 IF NOT EXIST "Downloads\sublime-snippets.zip" GOTO :END
-7za e "Downloads\sublime-snippets.zip" -o"%APPDATA%Sublime Text 3\Packages\User\Snippets" -y 2>NUL >NUL
-RMDIR /Q "%APPDATA%Sublime Text 3\Packages\User\Snippets\sublime-snippets-master"
+7za e "Downloads\sublime-snippets.zip" -o"%APPDATA%\Sublime Text 3\Packages\User\Snippets" -y 2>NUL >NUL
+RMDIR /Q "%APPDATA%\Sublime Text 3\Packages\User\Snippets\sublime-snippets-master"
 GOTO:EOF
 
 :END
