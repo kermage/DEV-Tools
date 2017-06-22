@@ -28,3 +28,5 @@ ECHO "%PATH%" | FINDSTR /C:"%sublime_path%" 2>NUL >NUL || (
 )
 
 :END
+
+subl
