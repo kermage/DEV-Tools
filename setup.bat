@@ -66,22 +66,22 @@ IF EXIST "Downloads\%sublime_fn%" (
 	ECHO|SET /P ="Installing Sublime Text . . . "
 	"Downloads\%sublime_fn%" /SILENT /LOADINF="Downloads\sublime.ini"
 	CALL "import_sublime.bat" 2>NUL >NUL
-	CALL "add-sublime.bat" 2>NUL >NUL
 	:: Install Package Control
 	cscript "download.vbs" "https://packagecontrol.io/Package Control.sublime-package" "%APPDATA%\Sublime Text 3\Installed Packages" 2>NUL >NUL
+	CALL "add-sublime.bat" 2>NUL >NUL
 	ECHO DONE^^!
 )
 IF EXIST "Downloads\%git_fn%" (
 	ECHO|SET /P ="Installing Git . . . "
 	"Downloads\%git_fn%" /SILENT /LOADINF="Downloads\git.ini"
-	ECHO DONE^^!
 	START CMD /C "git_config.bat"
+	ECHO DONE^^!
 )
 IF EXIST "Downloads\%node_fn%" (
 	ECHO|SET /P ="Installing NodeJS . . . "
 	"Downloads\%node_fn%" /QUIET
-	ECHO DONE^^!
 	START CMD /C "npm_install.bat"
+	ECHO DONE^^!
 )
 ECHO.
 
