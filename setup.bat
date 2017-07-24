@@ -60,8 +60,8 @@ IF EXIST "Downloads\%cmder_fn%" (
 	CALL "import_cmder.bat" 2>NUL >NUL
 	:: Register Cmder context menu
 	%SYSTEMDRIVE%\Cmder\Cmder /REGISTER ALL
-	REG DELETE "HKCR\Directory\Background\shell\Cmder" /v NoWorkingDirectory
-	REG DELETE "HKCR\Directory\shell\Cmder" /v NoWorkingDirectory
+	REG DELETE "HKCR\Directory\Background\shell\Cmder" /v NoWorkingDirectory /f
+	REG DELETE "HKCR\Directory\shell\Cmder" /v NoWorkingDirectory /f
 	ECHO DONE^^!
 )
 IF EXIST "Downloads\%sublime_fn%" (
