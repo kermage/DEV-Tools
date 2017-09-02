@@ -4,7 +4,7 @@ alias ls='ls --show-control-chars -F --color $*'
 alias vi='vim $*'
 
 alias open='explorer $1'
-alias mkcd='mkdir $1 & cd $1'
+function mkcd() { mkdir $1 && cd $1; }
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
@@ -15,8 +15,8 @@ alias gb='git branch $*'
 alias gch='git checkout $*'
 alias gcl='git clone $*'
 alias gc='git commit $*'
-alias gcm='git commit -m "$*"'
-alias gcmp='git commit -m "$*" && git push'
+function gcm() { git commit -m "$*"; }
+function gcmp() { git commit -m "$*" && git push; }
 alias gd='git diff'
 alias gr='git remote $*'
 alias gpu='git pull $*'
