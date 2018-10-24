@@ -41,16 +41,6 @@ IF NOT EXIST "Downloads\%sublime_fn%" (
 	cscript "download.vbs" "%sublime_url%" "Downloads" 2>NUL >NUL
 	IF "!ERRORLEVEL!"=="0" ( ECHO DONE^^! ) ELSE ( ECHO FAILED^^! )
 )
-IF NOT EXIST "Downloads\%git_fn%" (
-	ECHO|SET /P ="Downloading Git . . . "
-	cscript "download.vbs" "%git_url%" "Downloads" 2>NUL >NUL
-	IF "!ERRORLEVEL!"=="0" ( ECHO DONE^^! ) ELSE ( ECHO FAILED^^! )
-)
-IF NOT EXIST "Downloads\%node_fn%" (
-	ECHO|SET /P ="Downloading NodeJS . . . "
-	cscript "download.vbs" "%node_url%" "Downloads" 2>NUL >NUL
-	IF "!ERRORLEVEL!"=="0" ( ECHO DONE^^! ) ELSE ( ECHO FAILED^^! )
-)
 ECHO.
 
 :: Install then import config and data
@@ -73,19 +63,11 @@ IF EXIST "Downloads\%sublime_fn%" (
 	CALL "add-sublime.bat" 2>NUL >NUL
 	ECHO DONE^^!
 )
-IF EXIST "Downloads\%git_fn%" (
-	ECHO|SET /P ="Installing Git . . . "
-	"Downloads\%git_fn%" /SILENT /LOADINF="Downloads\git.ini"
-	START CMD /C "git_config.bat"
-	ECHO DONE^^!
-)
-IF EXIST "Downloads\%node_fn%" (
-	ECHO|SET /P ="Installing NodeJS . . . "
-	"Downloads\%node_fn%" /QUIET
-	START CMD /C "npm_install.bat"
-	ECHO DONE^^!
-)
 ECHO.
+
+:: Install Scoop
+START https://github.com/lukesampson/scoop
+START powershell
 
 :: Create ssh key folder if not exist
 IF NOT EXIST "%USERPROFILE%\.ssh\" (
