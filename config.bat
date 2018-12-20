@@ -1,5 +1,5 @@
 :: URL
-SET cmder_url=https://github.com/cmderdev/cmder/releases/download/v1.3.6/cmder_mini.zip
+SET cmder_url=https://github.com/cmderdev/cmder/releases/download/v1.3.10/cmder_mini.zip
 SET sublime_url=https://download.sublimetext.com/Sublime Text Build 3176 Setup.exe
 
 :: Filenames
