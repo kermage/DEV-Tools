@@ -33,12 +33,12 @@ CALL "config.bat"
 :: Download tools
 IF NOT EXIST "Downloads\%cmder_fn%" (
 	ECHO|SET /P ="Downloading Cmder . . . "
-	cscript "download.vbs" "%cmder_url%" "Downloads" 2>NUL >NUL
+	cscript "scripts\download.vbs" "%cmder_url%" "Downloads" 2>NUL >NUL
 	IF "!ERRORLEVEL!"=="0" ( ECHO DONE^^! ) ELSE ( ECHO FAILED^^! )
 )
 IF NOT EXIST "Downloads\%sublime_fn%" (
 	ECHO|SET /P ="Downloading Sublime Text . . . "
-	cscript "download.vbs" "%sublime_url%" "Downloads" 2>NUL >NUL
+	cscript "scripts\download.vbs" "%sublime_url%" "Downloads" 2>NUL >NUL
 	IF "!ERRORLEVEL!"=="0" ( ECHO DONE^^! ) ELSE ( ECHO FAILED^^! )
 )
 ECHO.
@@ -47,7 +47,7 @@ ECHO.
 IF EXIST "Downloads\%cmder_fn%" (
 	ECHO|SET /P ="Installing Cmder . . . "
 	7za x "Downloads\%cmder_fn%" -o"%SYSTEMDRIVE%\Cmder" -y 2>NUL >NUL
-	CALL "import_cmder.bat" 2>NUL >NUL
+	CALL "scripts\import_cmder.bat" 2>NUL >NUL
 	:: Register Cmder context menu
 	%SYSTEMDRIVE%\Cmder\Cmder /REGISTER ALL
 	REG DELETE "HKCR\Directory\Background\shell\Cmder" /v NoWorkingDirectory /f
@@ -57,10 +57,10 @@ IF EXIST "Downloads\%cmder_fn%" (
 IF EXIST "Downloads\%sublime_fn%" (
 	ECHO|SET /P ="Installing Sublime Text . . . "
 	"Downloads\%sublime_fn%" /SILENT /LOADINF="Downloads\sublime.ini"
-	CALL "import_sublime.bat" 2>NUL >NUL
+	CALL "scripts\import_sublime.bat" 2>NUL >NUL
 	:: Install Package Control
-	cscript "download.vbs" "https://packagecontrol.io/Package Control.sublime-package" "%APPDATA%\Sublime Text 3\Installed Packages" 2>NUL >NUL
-	CALL "add-sublime.bat" 2>NUL >NUL
+	cscript "scripts\download.vbs" "https://packagecontrol.io/Package Control.sublime-package" "%APPDATA%\Sublime Text 3\Installed Packages" 2>NUL >NUL
+	CALL "scripts\add-sublime.bat" 2>NUL >NUL
 	ECHO DONE^^!
 )
 ECHO.
