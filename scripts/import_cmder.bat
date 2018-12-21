@@ -2,8 +2,8 @@
 
 :COPYFILES
 :: Check if folder exist
-IF NOT EXIST "..\cmder-config\" GOTO :END
-ROBOCOPY "..\cmder-config" "%SYSTEMDRIVE%\cmder" /S
+IF NOT EXIST "..\Cmder-config\" GOTO :END
+ROBOCOPY "..\Cmder-config" "%SYSTEMDRIVE%\Cmder" /S
 GOTO:EOF
 
 :END
