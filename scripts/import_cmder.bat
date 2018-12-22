@@ -7,4 +7,3 @@ ROBOCOPY "Cmder-config" "%SYSTEMDRIVE%\Cmder" /S
 GOTO:EOF
 
 :END
-PAUSE

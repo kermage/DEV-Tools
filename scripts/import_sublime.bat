@@ -25,4 +25,3 @@ RMDIR /Q "%APPDATA%\Sublime Text 3\Packages\User\Snippets\sublime-snippets-maste
 GOTO:EOF
 
 :END
-PAUSE
