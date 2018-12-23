@@ -77,7 +77,6 @@
 			<value name="StartFarEditors" type="hex" data="00"/>
 			<value name="StoreTaskbarkTasks" type="hex" data="01"/>
 			<value name="StoreTaskbarCommands" type="hex" data="00"/>
-			<value name="CmdLineHistory" type="multi"></value>
 			<value name="SingleInstance" type="hex" data="00"/>
 			<value name="ShowHelpTooltips" type="hex" data="01"/>
 			<value name="Multi" type="hex" data="01"/>
