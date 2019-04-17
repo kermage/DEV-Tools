@@ -71,6 +71,8 @@ START powershell
 IF NOT EXIST "%USERPROFILE%\.ssh\" (
 	MKDIR "%USERPROFILE%\.ssh" && ECHO Created "%USERPROFILE%\.ssh"
 )
+
+START "%USERPROFILE%\.ssh"
 ECHO.
 
 PAUSE
