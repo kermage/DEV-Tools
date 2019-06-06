@@ -47,3 +47,6 @@ npmu=npm uninstall $*
 npmug=npm uninstall -g $*
 npmcc=npm cache clean
 
+sshconf=subl "%USERPROFILE%\.ssh\config"
+hosts=subl "%WINDIR%\System32\drivers\etc\hosts"
+

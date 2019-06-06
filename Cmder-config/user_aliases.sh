@@ -35,3 +35,6 @@ alias npmu='npm uninstall'
 alias npmug='npm uninstall -g'
 alias npmcc='npm cache clean'
 
+alias sshconf='subl ~/.ssh/config'
+alias hosts='subl $WINDIR/System32/drivers/etc/hosts'
+
