@@ -35,9 +35,3 @@ alias npmu='npm uninstall'
 alias npmug='npm uninstall -g'
 alias npmcc='npm cache clean'
 
-alias bowi='bower install'
-alias bowis='bower install -S'
-alias bowid='bower install -D'
-alias bowu='bower uninstall'
-alias bowcc='bower cache clean'
-

@@ -47,9 +47,3 @@ npmu=npm uninstall $*
 npmug=npm uninstall -g $*
 npmcc=npm cache clean
 
-bowi=bower install $*
-bowis=bower install -S $*
-bowid=bower install -D $*
-bowu=bower uninstall $*
-bowcc=bower cache clean
-
