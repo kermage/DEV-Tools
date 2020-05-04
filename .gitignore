@@ -1,5 +1,2 @@
 # Downloaded files
 Downloads/**
-
-# Except setup settings
-!Downloads/*.ini
