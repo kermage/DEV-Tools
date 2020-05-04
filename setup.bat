@@ -61,7 +61,7 @@ ECHO.
 SET "PATH=%USERPROFILE%\scoop\shims;%PATH%"
 
 :: Download Apps
-PowerShell.exe -Command "scoop install aria2 cmder git"
+PowerShell.exe -Command "gc apps.txt | foreach-object { scoop install $_ }"
 ECHO.
 
 :: Import config
