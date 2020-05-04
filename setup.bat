@@ -40,8 +40,8 @@ SET "PATH=%USERPROFILE%\scoop\shims;%PATH%"
 
 :: Download Apps
 PowerShell.exe -Command "gc apps.txt | foreach-object { scoop install $_ }"
-CALL CMD /C "scoop bucket add extras && scoop install sublime-text"
 ECHO.
+CALL CMD /C "scoop bucket add extras && scoop install sublime-text"
 
 :: Import config
 CALL "scripts\import_cmder.bat"
@@ -49,7 +49,7 @@ ECHO.
 CALL "scripts\import_sublime.bat"
 
 :: Install Package Control
-cscript "scripts\download.vbs" "https://packagecontrol.io/Package Control.sublime-package" "%USERPROFILE%\scoop\persist\sublime-text\Data\Installed Packages" 2>NUL >NUL
+cscript "scripts\download.vbs" "https://packagecontrol.io/Package Control.sublime-package" "%USERPROFILE%\scoop\persist\sublime-text\Data\Installed Packages" >NUL
 
 :: Create ssh key folder if not exist
 IF NOT EXIST "%USERPROFILE%\.ssh\" (
