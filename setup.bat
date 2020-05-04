@@ -63,16 +63,21 @@ IF EXIST "Downloads\%sublime_fn%" (
 )
 ECHO.
 
+:: Configure Powershell
+ECHO|SET /P ="Execution Policy . . . "
+PowerShell.exe "Set-ExecutionPolicy RemoteSigned -scope CurrentUser" 2>NUL >NUL
+ECHO DONE^^!
+
 :: Install Scoop
 ECHO|SET /P ="Installing Scoop . . . "
-PowerShell.exe -ExecutionPolicy RemoteSigned -Command "iwr -useb get.scoop.sh | iex" 2>NUL >NUL
+PowerShell.exe -Command "iwr -useb get.scoop.sh | iex" 2>NUL >NUL
 ECHO DONE^^!
 
 SET "PATH=%USERPROFILE%\scoop\shims;%PATH%"
 
 :: Download Apps
 ECHO|SET /P ="Downloading Apps . . . "
-PowerShell.exe -ExecutionPolicy RemoteSigned -Command "scoop install aria2 git" 2>NUL >NUL
+PowerShell.exe -Command "scoop install aria2 git" 2>NUL >NUL
 ECHO DONE^^!
 
 :: Create ssh key folder if not exist
