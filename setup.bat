@@ -31,11 +31,6 @@ ECHO.
 CALL "config.bat"
 
 :: Download tools
-IF NOT EXIST "Downloads\%cmder_fn%" (
-	ECHO|SET /P ="Downloading Cmder . . . "
-	cscript "scripts\download.vbs" "%cmder_url%" "Downloads" 2>NUL >NUL
-	IF "!ERRORLEVEL!"=="0" ( ECHO DONE^^! ) ELSE ( ECHO FAILED^^! )
-)
 IF NOT EXIST "Downloads\%sublime_fn%" (
 	ECHO|SET /P ="Downloading Sublime Text . . . "
 	cscript "scripts\download.vbs" "%sublime_url%" "Downloads" 2>NUL >NUL
@@ -44,14 +39,6 @@ IF NOT EXIST "Downloads\%sublime_fn%" (
 ECHO.
 
 :: Install then import config and data
-IF EXIST "Downloads\%cmder_fn%" (
-	ECHO|SET /P ="Installing Cmder . . . "
-	7za x "Downloads\%cmder_fn%" -o"%SYSTEMDRIVE%\Cmder" -y 2>NUL >NUL
-	CALL "scripts\import_cmder.bat" 2>NUL >NUL
-	:: Register Cmder context menu
-	%SYSTEMDRIVE%\Cmder\Cmder /REGISTER ALL
-	ECHO DONE^^!
-)
 IF EXIST "Downloads\%sublime_fn%" (
 	ECHO|SET /P ="Installing Sublime Text . . . "
 	"Downloads\%sublime_fn%" /SILENT /LOADINF="Downloads\sublime.ini"
@@ -77,8 +64,10 @@ SET "PATH=%USERPROFILE%\scoop\shims;%PATH%"
 
 :: Download Apps
 ECHO|SET /P ="Downloading Apps . . . "
-PowerShell.exe -Command "scoop install aria2 git" 2>NUL >NUL
+PowerShell.exe -Command "scoop install aria2 cmder git" 2>NUL >NUL
 ECHO DONE^^!
+
+CALL "scripts\import_cmder.bat" 2>NUL >NUL
 
 :: Create ssh key folder if not exist
 IF NOT EXIST "%USERPROFILE%\.ssh\" (
