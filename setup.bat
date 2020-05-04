@@ -64,8 +64,9 @@ IF EXIST "Downloads\%sublime_fn%" (
 ECHO.
 
 :: Install Scoop
-START https://github.com/lukesampson/scoop
-START powershell
+ECHO|SET /P ="Installing Scoop . . . "
+PowerShell.exe -ExecutionPolicy RemoteSigned -Command "iwr -useb get.scoop.sh | iex" 2>NUL >NUL
+ECHO DONE^^!
 
 :: Create ssh key folder if not exist
 IF NOT EXIST "%USERPROFILE%\.ssh\" (
