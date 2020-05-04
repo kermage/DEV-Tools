@@ -1,16 +1,5 @@
 @ECHO OFF
 TITLE Setup DEV-Tools
-SETLOCAL EnableDelayedExpansion
-
-:: Check admin permissions
->nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
-IF "%ERRORLEVEL%"=="0" ( GOTO :MAIN )
-
-ECHO Set UAC = CreateObject^( "Shell.Application" ^) > "%TEMP%\getadmin.vbs"
-ECHO UAC.ShellExecute "%~s0", "", "", "runas", 1 >> "%TEMP%\getadmin.vbs"
-"%TEMP%\getadmin.vbs"
-DEL "%TEMP%\getadmin.vbs"
-EXIT /B
 
 :MAIN
 :: Change to batch file's directory
