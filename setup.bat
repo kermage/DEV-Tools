@@ -28,28 +28,6 @@ ECHO   /*******   /********   //**            /**  //******  //******  ***  ****
 ECHO   ///////    ////////     //             //    //////    //////  ///  //////
 ECHO.
 
-CALL "config.bat"
-
-:: Download tools
-IF NOT EXIST "Downloads\%sublime_fn%" (
-	ECHO|SET /P ="Downloading Sublime Text . . . "
-	cscript "scripts\download.vbs" "%sublime_url%" "Downloads" 2>NUL >NUL
-	IF "!ERRORLEVEL!"=="0" ( ECHO DONE^^! ) ELSE ( ECHO FAILED^^! )
-)
-ECHO.
-
-:: Install then import config and data
-IF EXIST "Downloads\%sublime_fn%" (
-	ECHO|SET /P ="Installing Sublime Text . . . "
-	"Downloads\%sublime_fn%" /SILENT /LOADINF="Downloads\sublime.ini"
-	CALL "scripts\import_sublime.bat" 2>NUL >NUL
-	:: Install Package Control
-	cscript "scripts\download.vbs" "https://packagecontrol.io/Package Control.sublime-package" "%APPDATA%\Sublime Text 3\Installed Packages" 2>NUL >NUL
-	CALL "scripts\add-sublime.bat" 2>NUL >NUL
-	ECHO DONE^^!
-)
-ECHO.
-
 :: Configure Powershell
 PowerShell.exe "Set-ExecutionPolicy RemoteSigned -scope CurrentUser"
 ECHO.
@@ -62,10 +40,16 @@ SET "PATH=%USERPROFILE%\scoop\shims;%PATH%"
 
 :: Download Apps
 PowerShell.exe -Command "gc apps.txt | foreach-object { scoop install $_ }"
+CALL CMD /C "scoop bucket add extras && scoop install sublime-text"
 ECHO.
 
 :: Import config
 CALL "scripts\import_cmder.bat"
+ECHO.
+CALL "scripts\import_sublime.bat"
+
+:: Install Package Control
+cscript "scripts\download.vbs" "https://packagecontrol.io/Package Control.sublime-package" "%USERPROFILE%\scoop\persist\sublime-text\Data\Installed Packages" 2>NUL >NUL
 
 :: Create ssh key folder if not exist
 IF NOT EXIST "%USERPROFILE%\.ssh\" (
