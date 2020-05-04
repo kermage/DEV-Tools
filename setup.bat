@@ -51,7 +51,7 @@ IF NOT EXIST "%USERPROFILE%\.ssh\" (
 )
 
 EXPLORER "%USERPROFILE%\.ssh"
-CALL CMD /C "cmder && subl"
+CALL CMD /C "cmder & subl"
 ECHO.
 
 PAUSE
