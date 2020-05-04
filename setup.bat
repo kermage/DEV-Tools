@@ -42,6 +42,11 @@ SET "PATH=%USERPROFILE%\scoop\shims;%PATH%"
 PowerShell.exe -Command "gc apps.txt | foreach-object { scoop install $_ }"
 ECHO.
 CALL CMD /C "scoop bucket add extras && scoop install sublime-text"
+ECHO.
+
+ECHO|SET /P ="Register Context Menu . . . "
+%USERPROFILE%\scoop\apps\cmder\current\Cmder /register USER
+REG IMPORT "%USERPROFILE%\scoop\apps\sublime-text\current\install-context.reg"
 
 :: Import config
 CALL "scripts\import_cmder.bat"
@@ -57,6 +62,7 @@ IF NOT EXIST "%USERPROFILE%\.ssh\" (
 )
 
 EXPLORER "%USERPROFILE%\.ssh"
+CALL CMD /C "cmder && subl"
 ECHO.
 
 PAUSE
