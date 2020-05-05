@@ -1,0 +1,15 @@
+{
+	"version": "1.0",
+	"url": "https://raw.githubusercontent.com/kermage/DEV-Tools/master/Downloads/placeholder",
+	"depends": [
+		"slack",
+		"winmerge",
+		"postman",
+		"filezilla",
+		"fastcopy",
+		"autohotkey",
+		"arduino",
+		"qbittorrent",
+		"vlc"
+	]
+}
