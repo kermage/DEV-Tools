@@ -50,7 +50,9 @@ IF NOT EXIST "%USERPROFILE%\.ssh\" (
 	MKDIR "%USERPROFILE%\.ssh" && ECHO Created "%USERPROFILE%\.ssh"
 )
 
-EXPLORER "%USERPROFILE%\.ssh"
+:: Import files
+CALL "scripts\import_ssh.bat"
+
 CALL CMD /C "cmder & subl"
 ECHO.
 
