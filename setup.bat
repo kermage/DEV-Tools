@@ -17,15 +17,21 @@ ECHO   /*******   /********   //**            /**  //******  //******  ***  ****
 ECHO   ///////    ////////     //             //    //////    //////  ///  //////
 ECHO.
 
+IF ["%~1"]==[""] (
+	SET "SCOOP=%USERPROFILE%\scoop"
+) else (
+	SET "SCOOP=%~1"
+)
+
+SET "PATH=%SCOOP%\shims;%PATH%"
+
 :: Configure Powershell
 PowerShell.exe "Set-ExecutionPolicy RemoteSigned -scope CurrentUser"
 ECHO.
 
 :: Install Scoop
-PowerShell.exe -Command "iwr -useb get.scoop.sh | iex"
+PowerShell.exe -Command "$env:SCOOP='%SCOOP%'; [environment]::setEnvironmentVariable( 'SCOOP', $env:SCOOP, 'User' ); iwr -useb get.scoop.sh | iex"
 ECHO.
-
-SET "PATH=%USERPROFILE%\scoop\shims;%PATH%"
 
 :: Download Apps
 PowerShell.exe -Command "gc apps.txt | foreach-object { scoop install $_ }"
@@ -34,8 +40,8 @@ CALL CMD /C "scoop bucket add extras && scoop install sublime-text"
 ECHO.
 
 ECHO|SET /P ="Register Context Menu . . . "
-%USERPROFILE%\scoop\apps\cmder\current\Cmder /register USER
-REG IMPORT "%USERPROFILE%\scoop\apps\sublime-text\current\install-context.reg"
+%SCOOP%\apps\cmder\current\Cmder /register USER
+REG IMPORT "%SCOOP%\apps\sublime-text\current\install-context.reg"
 
 :: Import config
 CALL "scripts\import_cmder.bat"
@@ -43,7 +49,7 @@ ECHO.
 CALL "scripts\import_sublime.bat"
 
 :: Install Package Control
-cscript "scripts\download.vbs" "https://packagecontrol.io/Package Control.sublime-package" "%USERPROFILE%\scoop\persist\sublime-text\Data\Installed Packages" >NUL
+cscript "scripts\download.vbs" "https://packagecontrol.io/Package Control.sublime-package" "%SCOOP%\persist\sublime-text\Data\Installed Packages" >NUL
 
 :: Create ssh key folder if not exist
 IF NOT EXIST "%USERPROFILE%\.ssh\" (
