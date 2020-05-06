@@ -3,8 +3,8 @@
 :COPYFILES
 :: Check if folder exist
 IF NOT EXIST "Cmder-config\" GOTO :END
-ROBOCOPY "Cmder-config" "%USERPROFILE%\scoop\persist\cmder\config" /S /NS /NC /NJH /NJS
-COPY "Cmder-config\user-ConEmu.xml" "%USERPROFILE%\scoop\persist\cmder\vendor\conemu-maximus5\ConEmu.xml"
+ROBOCOPY "Cmder-config" "%SCOOP%\persist\cmder\config" /S /NS /NC /NJH /NJS
+COPY "Cmder-config\user-ConEmu.xml" "%SCOOP%\persist\cmder\vendor\conemu-maximus5\ConEmu.xml"
 GOTO:EOF
 
 :END

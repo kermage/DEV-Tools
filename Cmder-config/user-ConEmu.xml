@@ -522,8 +522,8 @@
 				</key>
 				<key name="Task5" modified="2018-10-30 19:18:09" build="180528">
 					<value name="Name" type="string" data="{bash::mintty as Admin}"/>
-					<value name="Cmd1" type="string" data="*&quot;&quot;%USERPROFILE%\scoop\apps\git\current\usr\bin\mintty.exe&quot; /bin/bash -l&quot;"/>
-					<value name="GuiArgs" type="string" data=" /icon &quot;%USERPROFILE%\scoop\apps\git\current\mingw64\share\git\git-for-windows.ico&quot;"/>
+					<value name="Cmd1" type="string" data="*&quot;&quot;%SCOOP%\apps\git\current\usr\bin\mintty.exe&quot; /bin/bash -l&quot;"/>
+					<value name="GuiArgs" type="string" data=" /icon &quot;%SCOOP%\apps\git\current\mingw64\share\git\git-for-windows.ico&quot;"/>
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -531,8 +531,8 @@
 				</key>
 				<key name="Task6" modified="2018-10-30 19:18:09" build="180528">
 					<value name="Name" type="string" data="{bash::mintty}"/>
-					<value name="Cmd1" type="string" data="&quot;&quot;%USERPROFILE%\scoop\apps\git\current\usr\bin\mintty.exe&quot; /bin/bash -l&quot;"/>
-					<value name="GuiArgs" type="string" data=" /icon &quot;%USERPROFILE%\scoop\apps\git\current\mingw64\share\git\git-for-windows.ico&quot;"/>
+					<value name="Cmd1" type="string" data="&quot;&quot;%SCOOP%\apps\git\current\usr\bin\mintty.exe&quot; /bin/bash -l&quot;"/>
+					<value name="GuiArgs" type="string" data=" /icon &quot;%SCOOP%\apps\git\current\mingw64\share\git\git-for-windows.ico&quot;"/>
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -540,8 +540,8 @@
 				</key>
 				<key name="Task7" modified="2018-10-30 19:18:09" build="180528">
 					<value name="Name" type="string" data="{bash::bash as Admin}"/>
-					<value name="GuiArgs" type="string" data=" /icon &quot;%USERPROFILE%\scoop\apps\git\current\mingw64\share\git\git-for-windows.ico&quot;"/>
-					<value name="Cmd1" type="string" data="*&quot;&quot;%USERPROFILE%\scoop\apps\git\current\bin\bash.exe&quot; --init-file &quot;%CMDER_ROOT%\config\scripts\init.sh&quot;&quot;"/>
+					<value name="GuiArgs" type="string" data=" /icon &quot;%SCOOP%\apps\git\current\mingw64\share\git\git-for-windows.ico&quot;"/>
+					<value name="Cmd1" type="string" data="*&quot;&quot;%SCOOP%\apps\git\current\bin\bash.exe&quot; --init-file &quot;%CMDER_ROOT%\config\scripts\init.sh&quot;&quot;"/>
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -549,8 +549,8 @@
 				</key>
 				<key name="Task8" modified="2018-10-30 19:18:09" build="180528">
 					<value name="Name" type="string" data="{bash::bash}"/>
-					<value name="GuiArgs" type="string" data=" /icon &quot;%USERPROFILE%\scoop\apps\git\current\mingw64\share\git\git-for-windows.ico&quot;"/>
-					<value name="Cmd1" type="string" data="&quot;&quot;%USERPROFILE%\scoop\apps\git\current\bin\bash.exe&quot; --init-file &quot;%CMDER_ROOT%\config\scripts\init.sh&quot;&quot;"/>
+					<value name="GuiArgs" type="string" data=" /icon &quot;%SCOOP%\apps\git\current\mingw64\share\git\git-for-windows.ico&quot;"/>
+					<value name="Cmd1" type="string" data="&quot;&quot;%SCOOP%\apps\git\current\bin\bash.exe&quot; --init-file &quot;%CMDER_ROOT%\config\scripts\init.sh&quot;&quot;"/>
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
