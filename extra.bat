@@ -29,7 +29,7 @@ GOTO:EOF
 :INSTALL
 IF EXIST "Downloads\%1" (
 	ECHO|SET /P ="Installing %1 . . . "
-	"Downloads\%1" /PASSIVE
+	CALL CMD /C "START Downloads\%1 /PASSIVE"
 	ECHO DONE^^!
 )
 GOTO:EOF
