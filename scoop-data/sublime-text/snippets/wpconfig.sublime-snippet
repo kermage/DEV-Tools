@@ -1,0 +1,13 @@
+<snippet>
+    <content><![CDATA[
+define( 'WP_DEBUG', true );
+define( 'WP_DEBUG_LOG', true );
+define( 'WP_DEBUG_DISPLAY', false );
+define( 'WP_HOME', ${1:'http://' . \$_SERVER['SERVER_NAME']} );
+define( 'WP_SITEURL', ${2:${1:'http://' . \$_SERVER['SERVER_NAME']}} );
+
+
+]]></content>
+    <tabTrigger>wp</tabTrigger>
+    <description>Local Config</description>
+</snippet>

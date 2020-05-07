@@ -1,0 +1,7 @@
+{
+    "history_on_close": false,
+    "history_on_load": false,
+    "history_path": "D:/Dropbox/Sublime Text Backups",
+    "portable": false,
+    "file_size_limit": 1048576 // = 1024 KB
+}

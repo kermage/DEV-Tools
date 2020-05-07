@@ -1,0 +1,5 @@
+{
+	"delay": 0.5,
+	"highlights.demote_while_editing": "all",
+	"highlights.time_to_idle": 3
+}

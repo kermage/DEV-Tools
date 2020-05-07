@@ -1,0 +1,86 @@
+<snippet>
+    <content><![CDATA[
+{
+    "folders":
+    [
+        {
+            "path": ".",
+            "file_exclude_patterns":
+            [
+                "wp-activate.php",
+                "wp-blog-header.php",
+                "wp-comments-post.php",
+                "wp-config-sample.php",
+                // "wp-config.php",
+                "wp-content/index.php",
+                "wp-cron.php",
+                "wp-links-opml.php",
+                "wp-load.php",
+                "wp-login.php",
+                "wp-mail.php",
+                "wp-settings.php",
+                "wp-signup.php",
+                "wp-trackback.php",
+                "index.php",
+                "license.txt",
+                "readme.html",
+                "xmlrpc.php"
+            ],
+            "folder_exclude_patterns":
+            [
+                "wp-admin",
+                "wp-content/languages",
+                "wp-content/plugins",
+                "wp-content/themes",
+                "wp-content/upgrade",
+                "wp-content/uploads",
+                "wp-includes"
+            ]
+        },
+        {
+            "path": "wp-content/plugins",
+            "file_exclude_patterns":
+            [
+                "wp-content/plugins/hello.php",
+                "wp-content/plugins/index.php"
+            ],
+            "folder_exclude_patterns":
+            [
+                "wp-content/plugins/akismet"
+            ]
+        },
+        {
+            "path": "wp-content/themes",
+            "file_exclude_patterns":
+            [
+                "wp-content/themes/index.php"
+            ],
+            "folder_exclude_patterns":
+            [
+                "wp-content/themes/twenty*",
+                "wp-content/themes/${1:[THEME_SLUG]}"
+            ]
+        },
+        {
+            "path": "wp-content/themes/${1:[THEME_SLUG]}",
+            "name": "${2:[THEME_NAME]}"
+        }
+    ],
+    "settings":
+    {
+        "SublimeLinter.linters.eslint.executable": "\${project_path}/wp-content/themes/${1:[THEME_SLUG]}/node_modules/.bin/eslint.cmd",
+        "SublimeLinter.linters.eslint.working_dir": "\${project_path}/wp-content/themes/${1:[THEME_SLUG]}",
+        "SublimeLinter.linters.eslint.args": "--config='\${project_path}/wp-content/themes/${1:[THEME_SLUG]}/.eslintrc'",
+        "SublimeLinter.linters.phpcs.executable": "\${project_path}/wp-content/themes/${1:[THEME_SLUG]}/vendor/bin/phpcs.bat",
+        "SublimeLinter.linters.phpcs.working_dir": "\${project_path}/wp-content/themes/${1:[THEME_SLUG]}",
+        "SublimeLinter.linters.phpcs.args": "--standard='\${project_path}/wp-content/themes/${1:[THEME_SLUG]}/phpcs.xml'",
+        "SublimeLinter.linters.stylelint.executable": "\${project_path}/wp-content/themes/${1:[THEME_SLUG]}/node_modules/.bin/stylelint.cmd",
+        "SublimeLinter.linters.stylelint.working_dir": "\${project_path}/wp-content/themes/${1:[THEME_SLUG]}",
+        "SublimeLinter.linters.stylelint.args": "--config='\${project_path}/wp-content/themes/${1:[THEME_SLUG]}/.stylelintrc'",
+    }
+}
+
+]]></content>
+    <tabTrigger>wp</tabTrigger>
+    <description>Project Settings</description>
+</snippet>

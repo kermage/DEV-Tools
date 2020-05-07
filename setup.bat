@@ -43,10 +43,9 @@ ECHO|SET /P ="Register Context Menu . . . "
 %SCOOP%\apps\cmder\current\Cmder /register USER
 REG IMPORT "%SCOOP%\apps\sublime-text\current\install-context.reg"
 
-:: Import config
-CALL "scripts\import_cmder.bat"
+:: Import data
+CALL "scripts\import_scoop.bat"
 ECHO.
-CALL "scripts\import_sublime.bat"
 
 :: Install Package Control
 cscript "scripts\download.vbs" "https://packagecontrol.io/Package Control.sublime-package" "%SCOOP%\persist\sublime-text\Data\Installed Packages" >NUL
