@@ -2,3 +2,6 @@
 aria2
 cmder
 git
+nodejs
+php
+composer
