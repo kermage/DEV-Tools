@@ -1,4 +1,4 @@
 {
-	"terminal": "C:\\Cmder\\Cmder.exe",
+	"terminal": "C:/Users/admin/scoop/apps/cmder/current/Cmder.exe",
 	"parameters": ["/SINGLE", "%CWD%"]
 }

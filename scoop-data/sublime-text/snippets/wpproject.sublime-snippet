@@ -46,7 +46,8 @@
             ],
             "folder_exclude_patterns":
             [
-                "wp-content/plugins/akismet"
+                "wp-content/plugins/akismet",
+                "wp-content/plugins/${3:[PLUGIN_SLUG]}"
             ]
         },
         {
@@ -64,19 +65,23 @@
         {
             "path": "wp-content/themes/${1:[THEME_SLUG]}",
             "name": "${2:[THEME_NAME]}"
+        },
+        {
+            "path": "wp-content/plugins/${3:[PLUGIN_SLUG]}",
+            "name": "${4:[PLUGIN_NAME]}"
         }
     ],
     "settings":
     {
         "SublimeLinter.linters.eslint.executable": "\${project_path}/wp-content/themes/${1:[THEME_SLUG]}/node_modules/.bin/eslint.cmd",
         "SublimeLinter.linters.eslint.working_dir": "\${project_path}/wp-content/themes/${1:[THEME_SLUG]}",
-        "SublimeLinter.linters.eslint.args": "--config='\${project_path}/wp-content/themes/${1:[THEME_SLUG]}/.eslintrc'",
+        "SublimeLinter.linters.eslint.args": "--config='\${project_path}/wp-content/themes/${1:[THEME_SLUG]}/.eslintrc.json'",
         "SublimeLinter.linters.phpcs.executable": "\${project_path}/wp-content/themes/${1:[THEME_SLUG]}/vendor/bin/phpcs.bat",
         "SublimeLinter.linters.phpcs.working_dir": "\${project_path}/wp-content/themes/${1:[THEME_SLUG]}",
         "SublimeLinter.linters.phpcs.args": "--standard='\${project_path}/wp-content/themes/${1:[THEME_SLUG]}/phpcs.xml'",
         "SublimeLinter.linters.stylelint.executable": "\${project_path}/wp-content/themes/${1:[THEME_SLUG]}/node_modules/.bin/stylelint.cmd",
         "SublimeLinter.linters.stylelint.working_dir": "\${project_path}/wp-content/themes/${1:[THEME_SLUG]}",
-        "SublimeLinter.linters.stylelint.args": "--config='\${project_path}/wp-content/themes/${1:[THEME_SLUG]}/.stylelintrc'",
+        "SublimeLinter.linters.stylelint.args": "--config='\${project_path}/wp-content/themes/${1:[THEME_SLUG]}/.stylelintrc.json'",
     }
 }
 
