@@ -4,6 +4,7 @@
 :: Check if folder exist
 IF NOT EXIST "%SCOOP%\persist\" GOTO :END
 ROBOCOPY "%SCOOP%\persist\cmder\config" "..\scoop-data\cmder" /S /XF ".history" "Readme.md"
+POWERSHELL -Command "( gc ..\scoop-data\cmder\user_profile.sh ) -replace '.+/automate-them-all/gatas.sh', '###DEV_TOOLS###/automate-them-all/gatas.sh' | Out-File -encoding UTF8 ..\scoop-data\cmder\user_profile.sh"
 ROBOCOPY "%SCOOP%\persist\composer\home" "..\scoop-data\composer" *.json keys.*
 ROBOCOPY "%SCOOP%\persist\php\cli" "..\scoop-data\php" /S
 POWERSHELL -Command "( gc ..\scoop-data\php\php.ini ) -replace 'curl.cainfo=.+', ';curl.cainfo=' | Out-File -encoding UTF8 ..\scoop-data\php\php.ini"
