@@ -2,6 +2,7 @@
 
 FOR %%I IN ( "%~dp0\..\.." ) DO SET "DEV_TOOLS=%%~fI"
 CALL SET DEV_TOOLS=%%DEV_TOOLS:\=/%%
+CALL SET SCOOP_PATH=%%SCOOP:\=/%%
 CALL SET DT_UNIX=/%%DEV_TOOLS::=%%
 
 :COPYFILES
@@ -16,6 +17,7 @@ POWERSHELL -Command "( gc %SCOOP%\persist\php\cli\php.ini ) -replace ';curl.cain
 POWERSHELL -Command "( gc %SCOOP%\persist\php\cli\php.ini ) -replace ';openssl.cafile=', 'openssl.cafile=%SCOOP%\persist\php\cli\cacert.pem' | Out-File -encoding ASCII %SCOOP%\persist\php\cli\php.ini"
 ROBOCOPY "scoop-data\sublime-text\settings" "%SCOOP%\persist\sublime-text\Data\Packages\User" /S /NS /NC /NJH /NJS
 POWERSHELL -Command "( gc %SCOOP%\persist\sublime-text\Data\Packages\User\LocalHistory.sublime-settings ) -replace '###DEV_TOOLS###', '%DEV_TOOLS%' | Out-File -encoding ASCII %SCOOP%\persist\sublime-text\Data\Packages\User\LocalHistory.sublime-settings"
+POWERSHELL -Command "( gc %SCOOP%\persist\sublime-text\Data\Packages\User\Terminal.sublime-settings ) -replace '###SCOOP###', '%SCOOP_PATH%' | Out-File -encoding ASCII %SCOOP%\persist\sublime-text\Data\Packages\User\Terminal.sublime-settings"
 ROBOCOPY "scoop-data\sublime-text\snippets" "%SCOOP%\persist\sublime-text\Data\Packages\User\Snippets" /S /NS /NC /NJH /NJS
 GOTO:EOF
 
