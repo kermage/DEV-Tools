@@ -16,7 +16,7 @@
 ; ##################################################
 ; ##################### CONFIG #####################
 ; ##################################################
-#MaxThreads 20
+#MaxThreads 255
 #NoEnv
 #NoTrayIcon
 #Persistent
@@ -33,23 +33,27 @@ SetTitleMatchMode, Slow
 ; ##################################################
 ; ################### INITIALIZE ###################
 ; ##################################################
-SetWorkingDir %A_ScriptDir%
+SetWorkingDir % A_ScriptDir
 ;@Ahk2Exe-IgnoreBegin
 VERSION := "${3:[version]}"
 ;@Ahk2Exe-IgnoreEnd
 /*@Ahk2Exe-Keep
-FileGetVersion, VERSION, %A_ScriptFullPath%
+FileGetVersion, VERSION, % A_ScriptFullPath
 */
+
 TITLE = ${9:${1:[project]}}
-iniFile = ${10:${9:${1:[project]}}}.ini
-IfNotExist, ${10:${9:${1:[project]}}}.ini
+CONFIG = ${10:${9:${1:[project]}}}.ini
+
+if ( ! FileExist( CONFIG ) ) {
     FileInstall, ${10:${9:${1:[project]}}}.ini, ${10:${9:${1:[project]}}}.ini
+}
 
 
 ; ##################################################
 ; ###################### MAIN ######################
 ; ##################################################
 $11
+
 
 return ; =========== END OF AUTO EXECUTE ===========
 
