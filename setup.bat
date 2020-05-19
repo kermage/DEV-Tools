@@ -57,6 +57,7 @@ IF NOT EXIST "%USERPROFILE%\.ssh\" (
 
 :: Import files
 CALL "scripts\import_ssh.bat"
+COPY "gitconfig" "%USERPROFILE%\.gitconfig"
 
 CALL CMD /C "cmder & subl"
 ECHO.
