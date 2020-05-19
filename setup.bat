@@ -36,12 +36,13 @@ ECHO.
 :: Download Apps
 PowerShell.exe -Command "gc apps.txt | foreach-object { scoop install $_ }"
 ECHO.
-CALL CMD /C "scoop bucket add extras && scoop install sublime-text"
+CALL CMD /C "scoop bucket add extras && scoop install sublime-text vscode"
 ECHO.
 
 ECHO|SET /P ="Register Context Menu . . . "
 %SCOOP%\apps\cmder\current\Cmder /register USER
 REG IMPORT "%SCOOP%\apps\sublime-text\current\install-context.reg"
+REG IMPORT "%SCOOP%\apps\vscode\current\vscode-install-context.reg"
 
 :: Import data
 CALL "scripts\import_scoop.bat"
@@ -59,7 +60,7 @@ IF NOT EXIST "%USERPROFILE%\.ssh\" (
 CALL "scripts\import_ssh.bat"
 COPY "gitconfig" "%USERPROFILE%\.gitconfig"
 
-CALL CMD /C "cmder & subl"
+CALL CMD /C "cmder & subl & code"
 ECHO.
 
 PAUSE
