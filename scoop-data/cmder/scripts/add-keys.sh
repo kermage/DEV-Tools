@@ -1,5 +1,5 @@
 # List keys
-ssh_keys=$( ls $( echo /$USERPROFILE | sed -e 's/\\/\//g' -e 's/://')/.ssh/*_rsa 2>/dev/null )
+ssh_keys=$( ls $( echo $USERPROFILE | sed -e 's/\\/\//g' -e 's/://' -e 's/^[^/]/\/&/' )/.ssh/*_rsa 2>/dev/null )
 
 CHECK_KEY() {
 	# Add to list if ssh key is unidentified
