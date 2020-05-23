@@ -13,7 +13,7 @@ CHECK_KEY() {
 # If keys found
 if [ ! -z "$ssh_keys" ] ; then
 	# Check if ssh keys are known
-	for x in $ssh_keys ; do
-		CHECK_KEY $x
-	done
+	while IFS= read -r file ; do
+		CHECK_KEY $file
+	done <<< "$ssh_keys"
 fi
