@@ -7,15 +7,15 @@ fi
 
 # Set up the prompt
 source $HOME/.zsh/powerlevel10k/powerlevel10k.zsh-theme
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# To customize prompt, run `p10k configure` or edit ~/.zsh/p10k.zsh.
+[[ ! -f ~/.zsh/p10k.zsh ]] || source ~/.zsh/p10k.zsh
 
-setopt histignorealldups sharehistory
+setopt autocd correctall histignorealldups histignorespace histreduceblanks sharehistory
 
-# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
-HISTSIZE=1000
-SAVEHIST=1000
-HISTFILE=~/.zsh_history
+# Keep 2000 lines of history within the shell and save it to ~/.cache/zsh_history:
+HISTSIZE=2000
+SAVEHIST=$HISTSIZE
+HISTFILE=~/.cache/zsh_history
 
 # Use modern completion system
 autoload -Uz compinit
