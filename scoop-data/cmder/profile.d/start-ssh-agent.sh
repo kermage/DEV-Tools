@@ -1,5 +1,9 @@
 # Check if the agent is running
-SSH_AGENT_PID=$( ps -f | grep ssh-agent | awk '{print $2}' )
+SSH_AGENT_PID=$( ps -f | grep ssh-agent | grep -v grep | awk '{print $2}' )
+
+if [ -z "$SSH_AGENT_PID" ] ; then
+	SSH_AGENT_PID=$( ps -ax 2>/dev/null | grep 'ssh-agent -s' | grep -v grep | awk '{print $1}' )
+fi
 
 # Connect up the current ssh-agent
 if [ -z "$SSH_AGENT_PID" ] ; then
@@ -24,7 +28,7 @@ E=$?
 if [ $E -ne 0 ]; then
 	if [ $E -eq 2 ]; then
 		echo -n "Starting ssh-agent: "
-		eval $( ssh-agent ) > /dev/null
+		eval $( ssh-agent -s ) > /dev/null
 		echo "done"
 	fi
 	ssh-add
