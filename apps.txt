@@ -4,4 +4,5 @@ cmder
 git
 nodejs
 php
+php-xdebug
 composer
