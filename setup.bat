@@ -36,7 +36,7 @@ ECHO.
 :: Download Apps
 PowerShell.exe -Command "gc apps.txt | foreach-object { scoop install $_ }"
 ECHO.
-CALL CMD /C "scoop bucket add extras && scoop install sublime-text vscode"
+CALL CMD /C "scoop bucket add extras && scoop install sublime-text vscode php-xdebug"
 ECHO.
 
 ECHO|SET /P ="Register Context Menu . . . "
