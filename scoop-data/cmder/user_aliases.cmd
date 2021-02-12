@@ -5,7 +5,7 @@
 ;= goto:eof
 ;= Add aliases below here
 e.=explorer .
-gl=git log --oneline --all --graph --decorate $*
+gl=git log --oneline --graph --decorate $*
 ls=ls --show-control-chars -F --color $*
 pwd=cd
 clear=cls
@@ -33,9 +33,8 @@ gd=git diff
 gr=git remote $*
 gpu=git pull $*
 gp=git push $*
-gpd=git push origin development
+gpd=git push origin develop
 gpm=git push origin master
-gpu=git push origin upstream
 gs=git status $*
 gfs=git fetch && git status
 
@@ -47,6 +46,7 @@ npmu=npm uninstall $*
 npmug=npm uninstall -g $*
 npmcc=npm cache clean
 
-sshconf=subl "%USERPROFILE%\.ssh\config"
-hosts=subl "%WINDIR%\System32\drivers\etc\hosts"
+sshconf=code "%USERPROFILE%\.ssh\config"
+hosts=code "%WINDIR%\System32\drivers\etc\hosts"
 
+suss=scoop update && scoop status

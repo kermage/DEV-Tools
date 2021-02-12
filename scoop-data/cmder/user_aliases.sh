@@ -1,5 +1,5 @@
 alias e.'=explorer .'
-alias gl='git log --oneline --all --graph --decorate'
+alias gl='git log --oneline --graph --decorate'
 alias ls='ls --show-control-chars -F --color'
 alias vi='vim'
 
@@ -21,9 +21,8 @@ alias gd='git diff'
 alias gr='git remote'
 alias gpu='git pull'
 alias gp='git push'
-alias gpd='git push origin development'
+alias gpd='git push origin develop'
 alias gpm='git push origin master'
-alias gpu='git push origin upstream'
 alias gs='git status'
 alias gfs='git fetch && git status'
 
@@ -35,6 +34,7 @@ alias npmu='npm uninstall'
 alias npmug='npm uninstall -g'
 alias npmcc='npm cache clean'
 
-alias sshconf='subl ~/.ssh/config'
-alias hosts='subl $WINDIR/System32/drivers/etc/hosts'
+alias sshconf='code ~/.ssh/config'
+alias hosts='code $WINDIR/System32/drivers/etc/hosts'
 
+alias suss='scoop update && scoop status'
