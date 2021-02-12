@@ -2,6 +2,6 @@
 aria2
 cmder
 git
-nodejs
+nvm
 php
 composer
