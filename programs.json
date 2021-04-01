@@ -5,9 +5,10 @@
 		"slack",
 		"winmerge",
 		"postman",
-		"filezilla",
+		"cyberduck",
+		"thunderbird",
 		"fastcopy",
-		"autohotkey",
+		"autohotkey-installer",
 		"arduino"
 	]
 }
