@@ -19,11 +19,11 @@ HISTFILE=~/.cache/zsh_history
 
 # Use modern completion system
 autoload -Uz compinit
-zstyle ':completion:*' menu select
+zstyle ':completion:*' file-list all
 eval "$(dircolors -b)"
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*:default' menu select list-colors ${(s.:.)LS_COLORS}
 zmodload zsh/complist
-compinit
+compinit -d ~/.cache/.zcompdump
 # Include hidden files
 _comp_options+=(globdots)
 
