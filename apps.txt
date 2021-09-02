@@ -1,6 +1,5 @@
 7zip
 aria2
-cmder
 git
 nvm
 php

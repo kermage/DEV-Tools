@@ -40,7 +40,6 @@ CALL CMD /C "scoop bucket add extras && scoop bucket add versions && scoop insta
 ECHO.
 
 ECHO|SET /P ="Register Context Menu . . . "
-%SCOOP%\apps\cmder\current\Cmder /register USER
 REG IMPORT "%SCOOP%\apps\sublime-text\current\install-context.reg"
 REG IMPORT "%SCOOP%\apps\vscode\current\vscode-install-context.reg"
 
@@ -60,7 +59,7 @@ IF NOT EXIST "%USERPROFILE%\.ssh\" (
 CALL "scripts\import_ssh.bat"
 COPY "gitconfig" "%USERPROFILE%\.gitconfig"
 
-CALL CMD /C "cmder & subl & code"
+CALL CMD /C "git-bash & subl & code"
 ECHO.
 
 PAUSE
