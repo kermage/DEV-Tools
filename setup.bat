@@ -53,6 +53,7 @@ IF NOT EXIST "%USERPROFILE%\.ssh\" (
 
 :: Import files
 CALL "scripts\import_ssh.bat"
+CALL "scripts\import_bash.bat"
 COPY "gitconfig" "%USERPROFILE%\.gitconfig"
 
 CALL CMD /C "git-bash & code"
