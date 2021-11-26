@@ -3,12 +3,9 @@
 	"url": "https://raw.githubusercontent.com/kermage/DEV-Tools/master/Downloads/placeholder",
 	"depends": [
 		"slack",
-		"sublime-merge",
 		"winmerge",
 		"postman",
 		"cyberduck",
-		"fastcopy",
-		"autohotkey-installer",
-		"arduino"
+		"fastcopy"
 	]
 }

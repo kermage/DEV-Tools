@@ -5,4 +5,3 @@ nvm
 php
 composer
 wp-cli
-yarn
