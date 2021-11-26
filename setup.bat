@@ -36,19 +36,15 @@ ECHO.
 :: Download Apps
 PowerShell.exe -Command "gc apps.txt | foreach-object { scoop install $_ }"
 ECHO.
-CALL CMD /C "scoop bucket add extras && scoop bucket add versions && scoop install sublime-text vscode php-xdebug php74 php74-xdebug"
+CALL CMD /C "scoop bucket add extras && scoop bucket add versions && scoop install vscode php-xdebug php74 php74-xdebug"
 ECHO.
 
 ECHO|SET /P ="Register Context Menu . . . "
-REG IMPORT "%SCOOP%\apps\sublime-text\current\install-context.reg"
 REG IMPORT "%SCOOP%\apps\vscode\current\vscode-install-context.reg"
 
 :: Import data
 CALL "scripts\import_scoop.bat"
 ECHO.
-
-:: Install Package Control
-cscript "scripts\download.vbs" "https://packagecontrol.io/Package Control.sublime-package" "%SCOOP%\persist\sublime-text\Data\Installed Packages" >NUL
 
 :: Create ssh key folder if not exist
 IF NOT EXIST "%USERPROFILE%\.ssh\" (
@@ -59,7 +55,7 @@ IF NOT EXIST "%USERPROFILE%\.ssh\" (
 CALL "scripts\import_ssh.bat"
 COPY "gitconfig" "%USERPROFILE%\.gitconfig"
 
-CALL CMD /C "git-bash & subl & code"
+CALL CMD /C "git-bash & code"
 ECHO.
 
 PAUSE
