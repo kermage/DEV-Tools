@@ -3,3 +3,5 @@
 	email = genealyson.torcende@gmail.com
 [core]
 	autocrlf = false
+[pull]
+	rebase = false

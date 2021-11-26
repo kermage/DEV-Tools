@@ -51,6 +51,11 @@ IF NOT EXIST "%USERPROFILE%\.ssh\" (
 	MKDIR "%USERPROFILE%\.ssh" && ECHO Created "%USERPROFILE%\.ssh"
 )
 
+:: Create profile.d folder if not exist
+IF NOT EXIST "%USERPROFILE%\profile.d\" (
+	MKDIR "%USERPROFILE%\profile.d" && ECHO Created "%USERPROFILE%\profile.d"
+)
+
 :: Import files
 CALL "scripts\import_ssh.bat"
 CALL "scripts\import_bash.bat"
