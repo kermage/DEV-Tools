@@ -5,3 +5,4 @@ nvm
 php
 composer
 wp-cli
+cacert
