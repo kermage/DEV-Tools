@@ -3,3 +3,6 @@ Downloads/**
 
 # Keys and config
 ssh-files/**
+
+# Binary files
+bash-files/bin/**

@@ -56,6 +56,11 @@ IF NOT EXIST "%USERPROFILE%\profile.d\" (
 	MKDIR "%USERPROFILE%\profile.d" && ECHO Created "%USERPROFILE%\profile.d"
 )
 
+:: Create bin folder if not exist
+IF NOT EXIST "%USERPROFILE%\bin\" (
+	MKDIR "%USERPROFILE%\bin" && ECHO Created "%USERPROFILE%\bin"
+)
+
 :: Import files
 CALL "scripts\import_ssh.bat"
 CALL "scripts\import_bash.bat"
