@@ -3,5 +3,8 @@
 	email = genealyson.torcende@gmail.com
 [core]
 	autocrlf = false
+	longpaths = true
 [pull]
 	rebase = false
+[init]
+	defaultBranch = main
