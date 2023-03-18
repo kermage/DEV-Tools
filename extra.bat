@@ -20,6 +20,7 @@ ECHO.
 
 SET sources[0]=https://cdn1.evernote.com/boron/win/builds/Evernote-10.54.4-win-ddl-ga-3978-986a1704b8-setup.exe
 SET sources[1]=https://cdn.localwp.com/releases-stable/6.7.0+6347/local-6.7.0-windows.exe
+SET sources[2]=https://bluemars.org/clipx/clipx-1.0.3.8-setup.exe
 SET index=0
 
 :LOOP
