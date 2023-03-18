@@ -18,8 +18,8 @@ ECHO   /*******   /********   //**            /**  //******  //******  ***  ****
 ECHO   ///////    ////////     //             //    //////    //////  ///  //////
 ECHO.
 
-SET sources[0]=https://cdn1.evernote.com/boron/win/builds/Evernote-10.25.6-win-ddl-ga-3073-setup.exe
-SET sources[1]=https://cdn.localwp.com/releases-stable/6.1.7+5610/local-6.1.7-windows.exe
+SET sources[0]=https://cdn1.evernote.com/boron/win/builds/Evernote-10.54.4-win-ddl-ga-3978-986a1704b8-setup.exe
+SET sources[1]=https://cdn.localwp.com/releases-stable/6.7.0+6347/local-6.7.0-windows.exe
 SET index=0
 
 :LOOP
