@@ -6,4 +6,4 @@ php
 composer
 wp-cli
 cacert
-slicksvn
+sliksvn
