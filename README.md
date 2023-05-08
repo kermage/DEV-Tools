@@ -25,3 +25,10 @@
 
 - `extra.bat`
 - `scoop install programs.json`
+
+```cmd
+sublime-text
+cloudflared
+pnpm
+telnet
+```
