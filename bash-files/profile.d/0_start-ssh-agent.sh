@@ -1,11 +1,17 @@
+PS_WITH_OPTIONS="ps -f"
+
+if [ $( uname -s ) == "Darwin" ]; then
+	PS_WITH_OPTIONS="${PS_WITH_OPTIONS}ax"
+fi
+
 # Check if the agent is running
-SSH_AGENT_PID=$( ps -f | grep ssh-agent | awk '{print $2}' )
-SSH_AUTH_SOCK=$( ls ${TEMP}/ssh-*/agent.* 2>/dev/null | sed 's/=//' )
+SSH_AGENT_PID=$( $PS_WITH_OPTIONS | grep -v grep | grep ssh-agent | awk '{print $2}' )
+SSH_AUTH_SOCK=$( ls ${TMPDIR}/ssh-*/agent.* 2>/dev/null | sed 's/=//' )
 
 if [ -z "$SSH_AGENT_PID" ] ; then
 	if [ ! -z "$SSH_AUTH_SOCK" ] ; then
 		echo Removing old ssh-agent sockets
-		rm -r ${TEMP}/ssh-* 2>/dev/null
+		rm -r ${TMPDIR}/ssh-* 2>/dev/null
 	fi
 else
 	if [ -z "$SSH_AUTH_SOCK" ] ; then

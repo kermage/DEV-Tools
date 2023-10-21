@@ -1,10 +1,8 @@
-alias e.'=explorer .'
 alias gl='git log --oneline --graph --decorate'
 alias ls='ls --show-control-chars -F --color'
 alias vi='vim'
 
-alias open='explorer'
-function mkcd() { mkdir $1 && cd $1; }
+mkcd() { mkdir $1 && cd $1; }
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
@@ -15,8 +13,8 @@ alias gb='git branch'
 alias gch='git checkout'
 alias gcl='git clone'
 alias gc='git commit'
-function gcm() { git commit -m "$*"; }
-function gcmp() { git commit -m "$*" && git push; }
+gcm() { git commit -m "$*"; }
+gcmp() { git commit -m "$*" && git push; }
 alias gd='git diff'
 alias gr='git remote'
 alias gpu='git pull'
@@ -35,6 +33,12 @@ alias npmug='npm uninstall -g'
 alias npmcc='npm cache clean'
 
 alias sshconf='code ~/.ssh/config'
-alias hosts='code $WINDIR/System32/drivers/etc/hosts'
 
-alias suss='scoop update && scoop status'
+if [ $( uname -s ) == "MINGW*" ]; then
+    alias e.'=explorer .'
+    alias open='explorer'
+    alias hosts='code $WINDIR/System32/drivers/etc/hosts'
+    alias suss='scoop update && scoop status'
+else
+    alias hosts='code /etc/hosts'
+fi

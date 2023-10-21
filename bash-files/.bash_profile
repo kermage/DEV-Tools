@@ -4,7 +4,7 @@ if [ -d "${HOME}/profile.d" ] ; then
     if [ ! -z "$profile_d_scripts" ] ; then
         for x in ${profile_d_scripts} ; do
             echo Sourcing "${x}"...
-            . "${x}"
+            source "${x}"
         done
     fi
 fi
