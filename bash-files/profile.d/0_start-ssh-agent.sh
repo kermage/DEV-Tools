@@ -1,7 +1,9 @@
+#!/usr/bin/env bash
+
 PS_WITH_OPTIONS="ps -f"
 
 if [ $( uname -s ) == "Darwin" ]; then
-	PS_WITH_OPTIONS="${PS_WITH_OPTIONS}ax"
+	PS_WITH_OPTIONS="${PS_WITH_OPTIONS}lx"
 fi
 
 # Check if the agent is running
@@ -34,4 +36,3 @@ else
 	echo -n "Connected to Agent "
 fi
 echo PID: $SSH_AGENT_PID Socket: $SSH_AUTH_SOCK
-echo
