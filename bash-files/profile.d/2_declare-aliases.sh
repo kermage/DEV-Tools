@@ -35,10 +35,10 @@ alias npmcc='npm cache clean'
 alias sshconf='code ~/.ssh/config'
 
 if [ $( uname -s ) == "MINGW*" ]; then
-    alias e.'=explorer .'
-    alias open='explorer'
-    alias hosts='code $WINDIR/System32/drivers/etc/hosts'
-    alias suss='scoop update && scoop status'
+	alias e.'=explorer .'
+	alias open='explorer'
+	alias hosts='code $WINDIR/System32/drivers/etc/hosts'
+	alias suss='scoop update && scoop status'
 else
-    alias hosts='code /etc/hosts'
+	alias hosts='code /etc/hosts'
 fi
